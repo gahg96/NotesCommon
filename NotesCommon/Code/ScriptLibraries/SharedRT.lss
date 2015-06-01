@@ -1,0 +1,46 @@
+'++LotusScript Development Environment:2:5:(Options):0:74
+%REM
+    Library SharedRT
+    Created Aug 5, 2014 by Mariusz Jakubowski
+    Description: Utitlities for working with rich text fields.
+%END REM
+Option Public
+Option Declare
+Use "SharedLogging"
+Use "SharedCollections"
+
+'++LotusScript Development Environment:2:5:(Forward):0:1
+Declare Public Sub SaveAttachmentName(ADoc As NotesDocument, AAttField As String, ANameField As String)
+
+'++LotusScript Development Environment:2:5:(Declarations):0:2
+
+'++LotusScript Development Environment:2:2:SaveAttachmentName:7:8
+
+
+
+%REM
+    Description: Saves names of attachments in fields.
+%END REM
+Public Sub SaveAttachmentName(ADoc As NotesDocument, AAttField As String, ANameField As String)
+    On Error GoTo err1
+    Call ADoc.ReplaceItemValue(ANameField, "")
+    Dim f As NotesRichTextItem
+    Set f = ADoc.GetFirstItem(AAttField)
+    If Not f Is Nothing Then        
+        If f.Type = RICHTEXT Then
+            Dim eo As Variant
+            eo = f.EmbeddedObjects
+            If Not IsEmpty(eo) Then
+                Dim names As New SimpleList()
+                ForAll att In eo
+                    Call names.Add(att.Source)
+                End ForAll
+                Call ADoc.ReplaceItemValue(ANameField, names.Items)
+            End If            
+        End If 
+    End If
+    Exit Sub
+err1:
+    Call ShowErrorMessage("")
+    Exit Sub        
+End Sub

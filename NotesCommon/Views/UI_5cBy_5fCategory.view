@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<note class='view' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.2'
+ replicaid='C1257E57004171E2'>
+<noteinfo noteid='262' unid='D5FD88E2F5EC3E4BC1257C2A0039051D' sequence='14'>
+<created><datetime>20131121T112248,61+01</datetime></created>
+<modified><datetime dst='true'>20150601T142316,72+02</datetime></modified>
+<revised><datetime dst='true'>20150601T142316,71+02</datetime></revised>
+<lastaccessed><datetime dst='true'>20150601T142316,71+02</datetime></lastaccessed>
+<addedtofile><datetime dst='true'>20150601T135451,87+02</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mariusz Jakubowski/O=SEJM/C=PL</name><name>CN=Virt Administrator/O=virt</name></updatedby>
+<wassignedby><name>CN=Virt Administrator/O=virt</name></wassignedby>
+<item name='$FormulaClass' sign='true'><text>1</text></item>
+<item name='$TITLE' sign='true'><text>UI\By_Category|ui_by_category</text></item>
+<item name='$Index' sign='true'><text/></item>
+<item name='$Formula' summary='true' sign='true'><formula compiled='true'>
+fgACACwAAwAkMzIABQAIAENhdGVnb3J5AQACACAoIgKVACICAQABACkAIgIDAAUAJgAhAAQAAwAF
+AAkABAAkMzJUaXRsZSRDb25mbGljdCRSRUYABAAEAAAAHAAFAAQARm9ybQEACABEb2N1bWVudAoC
+AwAHAAoABAAJTDFT
+</formula></item>
+<item name='$Collation' summary='true'>
+<rawitemdata type='2'>
+EAABAABEiGYHAAADACQzMg==
+</rawitemdata></item>
+<item name='$ViewFormat' summary='true' sign='true'>
+<rawitemdata type='5'>
+AQACACEACAAAAFZDAwQDAAAAQgAAABAAAQEACgABAAAAAAAAAAICAAAAVkMAAAUABgAAAAAA0gAB
+AAAKgAAAAAAAAAAAAgIAAAAkMzJCAAIALAADACQzMgAFAAgAQ2F0ZWdvcnkBAAIAICgiApUAIgIB
+AAEAKQAiAgMABwAUAA0ACTFTMlMzUzRTNVM2UwBUaXRsZVR5dHUGiCYAAQAAAAEBAAkBAAAKAQEO
+CgAAAQCtKwEAAQABAAAAAAAAAAAAV0MBAAAJAAAAAAAAAAAAAAAAAAAAAAAABBAAAAAA//8AAAAA
+AAAAAAAAAAAAAFdDAQAACQAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAP//AAAAAAAAAAAAAAAAAABC
+AAAAAAABAP///wAFAP///wABAAAAAAAAAAAAAAAAAAEA////AAEA////AAAAAQAAAAAAAQAAAAAA
+AQAAAAAAAAAIAAAAAAABAAkAS2F0ZWdvcmlh
+</rawitemdata></item>
+<item name='$Comment' sign='true'><text>przykładowy widok</text></item>
+<item name='$Flags'><text>Ydw</text></item>
+<item name='$DesignerVersion'><text>8.5.3</text></item>
+<item name='$V5ACTIONS' sign='true'>
+<rawitemdata type='1'>
+vRwBAAAAAQABAAAAJQAAAAAAAAABAQAJCAACAHn/bAABAP///wABAAAAAAABAAAAAAABAO/v7wAA
+AB8AAQAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAHH/LgAAAAAAAwATAAwAAAAAAAAAAAAAAAAAAAAAAAAAAABi
+Z190b3BfMi5wbmf8/zoAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAMDA
+wAAAAAAAAAAAAAAAvv9OAAAAAQAAAJ8BAAANAAAAAAAAAE5vd3kgZG9rdW1lbnQJKgAAAB4AAgDo
+AwAAAAAAAAEACABEb2N1bWVudO0CAwAHAAoAAwAJNFMA
+</rawitemdata></item></note>
+

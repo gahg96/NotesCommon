@@ -1,0 +1,120 @@
+'++LotusScript Development Environment:2:5:(Options):0:74
+%REM
+	Library SharedUtils
+	Created Aug 2, 2013 by Mariusz Jakubowski
+	Description: Misc utility functions.
+%END REM
+Option Public
+Option Declare
+
+Use "SharedCollections"
+
+
+
+'++LotusScript Development Environment:2:5:(Forward):0:1
+Declare Sub OpenDocumentByUNID(AField As String, ADB As NotesDatabase)
+Declare Function GetTempDir() As String
+Declare Function ReplaceIfChanged(ADoc As NotesDocument, AField As String, ANewVal As Variant) As Boolean
+Declare Public Function IsMember(ARole As String) As Boolean
+Declare Public Function IsAdmin() As Boolean
+Declare Function MakeProperFileName(AText As String) As String
+Declare Public Function iif(ACondition As Boolean, ATrue As Variant, AFalse As Variant) As Variant
+
+'++LotusScript Development Environment:2:5:(Declarations):0:2
+
+'++LotusScript Development Environment:2:2:OpenDocumentByUNID:1:8
+Sub OpenDocumentByUNID(AField As String, ADB As NotesDatabase)
+    ' opens document using unid in field AField
+    Dim w As New NotesUIWorkspace()
+    Dim s As New NotesSession()
+    Dim db As NotesDatabase
+    Dim uidoc As NotesUIDocument
+    Dim destDoc As NotesDocument
+    Dim unid As String
+    
+    If ADB Is Nothing Then
+        Set db = s.CurrentDatabase
+    Else
+        Set db = ADB
+    End If
+    Set uidoc = w.CurrentDocument
+    unid = uidoc.Document.GetItemValue(AField)(0)
+    If unid = "" Then Exit Sub
+    Set destDoc = db.GetDocumentByUNID(unid)
+    Call w.EditDocument(False, destDoc)
+End Sub
+
+
+'++LotusScript Development Environment:2:1:GetTempDir:5:8
+%REM
+	Function GetTempDir
+	Description: Returns directory used for storing temporary files.
+%END REM
+Function GetTempDir() As String
+    GetTempDir = Environ("Temp")
+End Function
+
+
+'++LotusScript Development Environment:2:1:ReplaceIfChanged:6:8
+' porównuje stare i nowe wartości i zmienia jeżeli się różnią
+' ADoc - dokument na którym sprawdzić wartość
+' AField - pole do sprawdzenia
+' ANewVal - nowa wartość
+' return - true jeżeli zmieniono, false - nie zmieniono wartości
+Function ReplaceIfChanged(ADoc As NotesDocument, AField As String, ANewVal As Variant) As Boolean
+    If Not CompareArrays(ADoc.GetItemValue(AField), ANewVal) Then
+        Call ADoc.ReplaceItemValue(AField, ANewVal)
+        ReplaceIfChanged = True
+    Else
+        ReplaceIfChanged = False
+    End If
+End Function
+
+
+'++LotusScript Development Environment:2:1:IsMember:2:8
+' Checks if user has a role.
+Public Function IsMember(ARole As String) As Boolean
+    Dim role As Variant
+    role = Evaluate(|@IsMember("| + ARole + |"; @UserRoles)|)
+    IsMember = role(0)
+End Function
+
+
+'++LotusScript Development Environment:2:1:IsAdmin:2:8
+' Checks if user has [Admin] role.
+Public Function IsAdmin() As Boolean
+    Dim role As Variant   
+    role = Evaluate(|@IsMember("[Admin]"; @UserRoles)|)
+    IsAdmin = role(0)
+End Function
+
+
+'++LotusScript Development Environment:2:1:MakeProperFileName:3:8
+' tworzy poprawną nazwę pliku
+' zamienia znaki spoza A-Z i 0-9 na _ 
+Function MakeProperFileName(AText As String) As String
+    Dim i As Integer
+    Dim l As String 
+    
+    For i = 1 To Len(AText) 
+        l = UCase(Mid$(AText, i, 1))
+        If (l<"A" Or l>"Z") And (l<"0" Or l>"9") Then
+            l = "_"
+        End If
+        MakeProperFileName = MakeProperFileName & l
+    Next
+End Function
+
+
+
+
+'++LotusScript Development Environment:2:1:iif:1:8
+Public Function iif(ACondition As Boolean, ATrue As Variant, AFalse As Variant) As Variant
+    ' Returns one value if a specified condition evaluates to True, 
+    ' or another value if it evaluates to False
+    If ACondition Then
+        iif = ATrue
+    Else
+        iif = AFalse
+    End If
+End Function

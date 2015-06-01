@@ -1,0 +1,53 @@
+'++LotusScript Development Environment:2:5:(Options):0:74
+%REM
+	Library SharedStrings
+	Created Aug 2, 2013 by Mariusz Jakubowski
+	Description: Utility functions for manipulating strings
+%END REM
+Option Public
+Option Declare
+
+
+
+'++LotusScript Development Environment:2:5:(Forward):0:1
+Declare Function ReplaceString(ByVal strArg As String,ByVal strSrc As String, ByVal strDst As String) As String
+Declare Function MiddleSubStr(AString As String, AStart As String, AEnd As String) As String
+Declare Function AddBracket(AStr As String) As String
+Declare Function AddQuotation(AStr As String) As String
+
+'++LotusScript Development Environment:2:5:(Declarations):0:2
+
+'++LotusScript Development Environment:2:1:ReplaceString:1:8
+Function ReplaceString(ByVal strArg As String,ByVal strSrc As String, ByVal strDst As String) As String
+    Dim iPos As Integer
+    iPos = InStr(strArg, strSrc)
+    While iPos > 0
+        strArg = Left$(strArg, iPos - 1) + strDst + Mid$(strArg, iPos +Len(strSrc))
+        iPos = InStr(iPos + Len(strDst), strArg, strSrc)
+    Wend
+    ReplaceString = strArg
+End Function
+
+'++LotusScript Development Environment:2:1:MiddleSubStr:1:8
+Function MiddleSubStr(AString As String, AStart As String, AEnd As String) As String
+    ' returns substring contained between  AStart and AEnd
+    MiddleSubStr = StrRight(AString, AStart)
+    If InStr(MiddleSubStr, AEnd) Then MiddleSubStr = StrLeft(MiddleSubStr, AEnd)
+End Function
+
+
+
+'++LotusScript Development Environment:2:1:AddBracket:2:8
+' obejmuje string w nawiasy
+Function AddBracket(AStr As String) As String
+    AddBracket = "(" & AStr & ")"
+End Function
+
+
+
+'++LotusScript Development Environment:2:1:AddQuotation:2:8
+' obejmuje string w cudzysłowie
+Function AddQuotation(AStr As String) As String
+    AddQuotation = |"| & AStr & |"|
+End Function
+

@@ -1,0 +1,121 @@
+'++LotusScript Development Environment:2:5:(Options):0:74
+%REM
+	Library SharedConfiguration
+	Created Jul 22, 2014 by Mariusz Jakubowski
+	Description: Utilities for managing configuration.
+%END REM
+Option Public
+Option Declare
+Use "SharedBase"
+Use "SharedLogging"
+Use "SharedNative"
+
+'++LotusScript Development Environment:2:5:(Forward):0:1
+Declare Public Sub ResetCache(AType As String)
+Declare Public Sub CopyToClipboard()
+Declare Public Sub PasteFromClipboard()
+Declare Public Sub UpdateLastSave()
+
+'++LotusScript Development Environment:2:5:(Declarations):0:10
+
+Public Const CACHE_MENU = "menu"
+Public Const CACHE_NEWS = "news"
+Public Const CACHE_CONFIG = "config"
+Public Const CACHE_LINKS = "links"
+
+
+
+'++LotusScript Development Environment:2:2:ResetCache:5:8
+%REM
+    Sub ResetCache
+    Description: Resetuje cache o typie AType.
+%END REM
+Public Sub ResetCache(AType As String)
+    On Error GoTo err1
+    Dim objHttp As Variant
+    Set objHttp = CreateObject("Microsoft.XMLHTTP")
+    Dim profile As NotesDocument
+    Set profile = CurrentDatabase.GetProfileDocument(F_CONFIGURATION, CurrentDatabase.Server)
+    Dim url As String
+    url = profile.WebAddr(0) & "resetCache.xsp?type=" + AType
+    Print "reset " + url
+    Call objHttp.open("GET", url, False, "", "")
+    Call objHttp.send("")
+    Set objHttp = Nothing
+    Exit Sub
+err1:
+    Set objHttp = Nothing
+    Call ShowErrorMessage("")
+    Exit Sub        
+End Sub
+
+
+'++LotusScript Development Environment:2:2:CopyToClipboard:5:8
+%REM
+    Sub CopyToClipboard
+    Description: Copy document contents to clipboard.
+%END REM
+Public Sub CopyToClipboard()
+    On Error GoTo err1
+    Call InitUI()
+    Dim txt As String
+    ForAll item In document.Items
+        Dim ite As NotesItem
+        If Left$(item.Name, 1) <> "$" Then
+            txt = txt + item.Name + ":" + item.Text + Chr$(13)
+        End If
+    End ForAll
+    Call setClipboardText(txt)
+    Exit Sub
+err1:
+    Call ShowErrorMessage("")
+    Exit Sub
+End Sub
+
+
+
+'++LotusScript Development Environment:2:2:PasteFromClipboard:5:8
+%REM
+    Sub PasteFromClipboard
+    Description: Paste field values from clipboard into document.
+%END REM
+Public Sub PasteFromClipboard()
+    On Error GoTo err1
+    Call InitUI()
+    Dim errDebug As String
+    Dim txt As String
+    Call getClipBoardText(False, txt)
+    Dim itemArr As Variant
+    itemArr = Split(txt, Chr$(13))
+    ForAll itemTxt In itemArr
+        If itemTxt = "" Then Exit ForAll            
+        errDebug = itemTxt 
+        Dim idx As Integer
+        idx = InStr(itemTxt, ":")
+        If idx = 0 Then Exit ForAll
+        Dim itemName As String
+        Dim value As String
+        itemName = Left$(itemTxt, idx-1)
+        value = Mid$(itemTxt, idx+1)
+        Call document.ReplaceItemValue(itemName, value)
+    End ForAll
+    Call uidoc.Reload()
+    Exit Sub
+err1:
+    Call ShowErrorMessage(errDebug)
+    Exit Sub
+End Sub
+
+
+
+'++LotusScript Development Environment:2:2:UpdateLastSave:5:8
+%REM
+    Sub UpdateLastSave
+    Description: Uaktualnia dane o ostanim zapisie 
+%END REM
+Public Sub UpdateLastSave()
+    Call InitUI()   
+    document.LastSavedDate = Now()
+    document.LastSavedAuthor = Session.CommonUserName
+End Sub
+

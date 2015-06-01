@@ -1,0 +1,652 @@
+'++LotusScript Development Environment:2:5:(Options):0:74
+%REM
+	Library SharedCollections
+	Created Aug 2, 2013 by Mariusz Jakubowski
+	Description: Collection utilities
+%END REM
+Option Public
+Option Declare
+
+Use "SharedLogging"
+
+
+'++LotusScript Development Environment:2:5:(Forward):0:1
+Declare Public Class AbstractList
+Declare Public Class AbstractItem
+Declare Public Class ObjectList As AbstractList
+Declare Public Class SimpleList As AbstractList
+Declare Public Class Comparator
+Declare Public Class DocumentObject As AbstractItem
+Declare Sub PackArray(AArray As Variant) 
+Declare Function RemoveItemFromArray(doc As NotesDocument, Field As String, value As String) As Boolean
+Declare Function AddItemToArray(doc As NotesDocument, Field As String, value As String) As Boolean
+Declare Function CompareArrays(Arr1 As Variant, Arr2 As Variant) As Boolean
+
+'++LotusScript Development Environment:2:5:(Declarations):0:10
+
+'---------------------------------------------------------------------------------------------------------------------------------
+
+%REM
+
+An ordered collection (also known as a sequence).
+
+%END REM
+Public Class AbstractList
+    fAllowDuplicates As Boolean     ' allow for duplicates
+    fCount As Integer                           ' objects count
+    fItems() As Variant                     ' an array of objects
+    
+    Public Sub New()
+        fCount = 0
+        fAllowDuplicates = True
+        ReDim fItems(0)
+    End Sub
+    
+    ' Returns number of items.
+    Public Property Get Count As Integer
+        Count = fCount
+    End Property
+    
+    ' Sets allow duplicates flag.
+    Public Property Set AllowDuplicates As Boolean
+        fAllowDuplicates = AllowDuplicates
+    End Property
+    
+    ' @protected @abstract
+    Function InternalAdd(AItem As Variant) As Integer
+    End Function
+    
+    ' Appends the specified element to the end of this list.
+    ' Returns index of new added element or -1 if adding failed 
+    ' (this can happen if trying to add duplicate and duplicates aren't allowed)
+    Public Function Add(AItem As Variant) As Integer
+        If Not fAllowDuplicates Then
+            If IndexOf(AItem) <> - 1 Then 
+                Add = -1
+                Exit Function
+            End If
+        End If
+        Add = InternalAdd(AItem)
+    End Function
+    
+    ' Returns the element at the specified position in this list.
+    ' @abstract
+    Public Function GetItem(idx As Integer) As Variant
+    End Function
+    
+    ' Returns items as an array
+    Public Property Get Items As Variant
+        Items = fItems
+    End Property
+    
+    ' Returns items as an array (the same as the property Items)
+    Public Function ToArray() As Variant
+        ToArray = fItems
+    End Function
+    
+    ' Returns true if this list contains no elements.
+    Public Function IsEmptyList() As Boolean
+        IsEmptyList = (fCount = 0)
+    End Function
+    
+    ' Inserts the specified element at the specified position in this list
+    ' @abstract
+    Public Sub Insert(AIndex As Integer, AElement As Variant)       
+    End Sub
+    
+    ' Returns the index of the first occurrence of the specified element in this list, 
+    ' or -1 if this list does not contain the element.
+    ' @abstract
+    Public Function IndexOf(AItem As Variant) As Integer        
+    End Function
+    
+    
+    ' Swaps two items in collection.
+    ' @abstract
+    Public Sub SwapItems(AIdx1 As Integer, AIdx2 As Integer)
+    End Sub
+    
+    ' Removes the element at the specified position in this list
+    ' @abstract
+    Public Sub RemoveItem(idx As Integer)
+    End Sub
+    
+    ' Removes the first occurrence of the specified element from this list, if it is present.
+    Public Sub FindAndRemove(AItem As Variant)
+        Dim idx As Integer
+        
+        idx = IndexOf(AItem)
+        If idx <> - 1 Then Call RemoveItem(idx)
+    End Sub
+    
+    ' Deletes null values from this list.
+    Public Sub RemoveNullItems()
+        Dim i As Integer
+        
+        For i = fCount - 1 To 0 Step -1
+            If IsNull(fItems(i)) Then Call RemoveItem(i)
+        Next            
+    End Sub
+    
+    ' Removes all of the elements from this list.
+    Public Sub Clear()
+        fCount = 0 
+        ReDim fItems(0)
+    End Sub
+    
+    ' Appends all of the elements in the specified collection to the end of this list.
+    Public Sub AddAll(c As AbstractList)
+        ForAll v In c.Items
+            Call Add(v)
+        End ForAll
+    End Sub
+    
+    ' Appends all of the elements in the specified array to the end of this list.
+    Public Sub AddArray(AArray As Variant)
+        If Not IsArray(AArray) Then Exit Sub
+        If (UBound(AArray) = 0) And (CStr(AArray(0)) = "") Then Exit Sub
+        ForAll i In AArray
+            Call Add(i)
+        End ForAll
+    End Sub
+    
+    ' Alias for AddArray.
+    Public Sub FromArray(AArray As Variant)
+        Call AddArray(AArray)
+    End Sub
+    
+    ' Replaces the element at the specified position in this list with the specified element
+    ' @abstract
+    Public Sub SetItem(AIdx As Integer, ANewVal As Variant)
+    End Sub
+    
+    ' Returns all items in list as string, separated by ";"
+    ' @abstract
+    Public Function ToString() As String
+    End Function
+    
+    ' Returns element from top of the list and removes it.
+    ' @abstract
+    Public Function Pop() As Variant
+    End Function
+    
+    ' Adds new element at end of the list
+    Public Sub Push(AItem As Variant)
+        Call Add(AItem)
+    End Sub
+    
+    ' Sorts the specified list into ascending order.
+    Public Sub Sort()
+        Call QuickSort(0, fCount - 1, Nothing)
+    End Sub
+    
+    ' Sorts the specified list into ascending order.
+    Public Sub SortComparator(ACmp As Comparator)
+        Call QuickSort(0, fCount - 1, ACmp)
+    End Sub
+    
+    Sub QuickSort(ByVal First As Integer, ByVal Last As Integer, ACmp As Comparator)
+        On Error GoTo err1
+        Dim Low As Integer, High As Integer         'Use Integer for lists up to 32,767 entries.
+        Dim TestElement As Variant 'Variant can handle any type of list.
+        Low = First
+        High = Last
+        If Last < 0 Then Exit Sub
+        If IsObject(fItems(0)) Then
+            Set TestElement = fItems((First + Last) / 2)  'Select an element from the middle.
+        Else
+            TestElement = fItems((First + Last) / 2)  'Select an element from the middle.
+        End If
+        
+        Do          
+            If ACmp Is Nothing Then
+                If IsObject(fItems(0)) Then
+                    ' no comparator - objects
+                    Do While fItems(Low).CompareTo(TestElement) < 0     'Find lowest element that is >= TestElement.
+                        Low = Low + 1
+                    Loop
+                    Do While fItems(High).CompareTo(TestElement) > 0    'Find highest element that is <= TestElement.
+                        High = High - 1
+                    Loop
+                Else
+                    ' no comparator - simple types
+                    Do While fItems(Low) < TestElement      'Find lowest element that is >= TestElement.
+                        Low = Low + 1
+                    Loop
+                    Do While fItems(High) > TestElement    'Find highest element that is <= TestElement.
+                        High = High - 1
+                    Loop
+                End If
+            Else 
+                ' we have a comparator
+                Do While ACmp.Compare(fItems(Low), TestElement) < 0     'Find lowest element that is >= TestElement.
+                    Low = Low + 1
+                Loop
+                Do While ACmp.Compare(fItems(High), TestElement) > 0    'Find highest element that is <= TestElement.
+                    High = High - 1
+                Loop
+            End If
+            
+            If (Low <= High) Then             'If not done,
+                Call SwapItems(Low, High)
+                Low = Low + 1
+                High = High - 1
+            End If
+        Loop While (Low <= High)
+        If (First < High) Then Call QuickSort(First, High, ACmp)
+        If (Low < Last) Then Call QuickSort(Low, Last, ACmp)
+        Exit Sub
+err1:
+        Call RaiseError(CStr(First) + "-" + CStr(Last))
+        Exit Sub
+    End Sub
+    
+    
+End Class
+
+
+
+'---------------------------------------------------------------------------------------------------------------------------------
+
+%REM
+
+    Base class for items in ObjectList
+
+%END REM
+Public Class AbstractItem
+    
+    ' tests if this object is equal to another
+    Public Function Equals(other As Variant) As Boolean
+        Equals = (HashCode = other.HashCode)
+    End Function
+    
+    ' compares this object with other
+    ' @returns
+    ' - 1 if this object is less than AOther
+    ' 0 - if objects are equal
+    ' 1 if this object is greater than AOther
+    Public Function CompareTo(AOther As Variant) As Integer
+        CompareTo = 0
+    End Function
+    
+    ' Returns the hash code value for this object.
+    Public Function HashCode() As String
+        HashCode = ToString
+    End Function
+    
+    ' compares this object to a key
+    Public Function CompareByKey(key As Variant) As Boolean
+        CompareByKey = (HashCode = key)
+    End Function
+    
+    ' converts this object to string represtentation
+    Public Function ToString() As String
+        ToString = ""
+    End Function
+    
+End Class
+
+
+
+
+'---------------------------------------------------------------------------------------------------------------------------------
+
+%REM
+
+    Implementation of AbstractList that contains objects.
+
+%END REM
+Public Class ObjectList As AbstractList
+    
+    ' @protected @override
+    Function InternalAdd(AItem As Variant) As Integer
+        ReDim Preserve fItems(fCount)
+        Set fItems(fCount) = AItem
+        InternalAdd = fCount
+        fCount = fCount + 1
+    End Function
+    
+    ' Returns element with given index
+    Public Function GetItem(idx As Integer) As Variant
+        Set GetItem = fItems(idx)
+    End Function
+    
+    
+    
+    ' Search for element in a list
+    ' Returns index of found element or -1 if item was not found
+    Public Function IndexOf(AItem As Variant) As Integer
+        Dim i As Integer
+        
+        IndexOf = -1
+        If fCount = 0 Then Exit Function
+        For i = 0 To fCount - 1 
+            If fItems(i).Equals(AItem) Then
+                IndexOf = i
+                Exit Function
+            End If
+        Next
+    End Function
+    
+    ' Search for element in a list
+    ' @returns item or nothing if item is not found
+    Public Function FindItem(AItem As Variant) As AbstractItem
+        Dim i As Integer
+        
+        If fCount = 0 Then Exit Function
+        For i = 0 To fCount - 1 
+            If fItems(i).Equals(AItem) Then
+                Set FindItem = fItems(i)
+                Exit Function
+            End If
+        Next
+    End Function
+    
+    ' Search for element in a list by a key
+    Public Function FindIndexByKey(AKey As Variant) As Integer
+        Dim i As Integer
+        
+        FindIndexByKey = -1
+        For i = 0 To fCount - 1 
+            If fItems(i).CompareByKey(AKey) Then
+                FindIndexByKey = i
+                Exit Function
+            End If
+        Next
+    End Function
+    
+    ' Search for element in a list by a key
+    Public Function FindByKey(AKey As Variant) As AbstractItem
+        Dim i As Integer
+        
+        i = FindIndexByKey(AKey)
+        If i = -1 Then
+            Set FindByKey = Nothing
+        Else
+            Set FindByKey = fItems(i)
+        End If
+    End Function
+    
+    ' @override
+    Public Sub SwapItems(AIdx1 As Integer, AIdx2 As Integer)
+        Dim tmp As Variant
+        Set tmp = fItems(AIdx1)
+        Set fItems(AIdx1) = fItems(AIdx2)
+        Set fItems(AIdx2) = tmp
+    End Sub
+    
+    ' @override
+    Public Sub RemoveItem(idx As Integer)
+        Dim i As Integer
+        
+        For i = idx To fCount - 2
+            Set fItems(i) = fItems(i + 1)
+        Next
+        fCount = fCount - 1
+        If fCount > 0 Then 
+            ReDim Preserve fItems(fCount - 1)
+        Else
+            fItems(0) = Null
+        End If      
+    End Sub
+    
+    ' @override
+    Public Sub SetItem(AIdx As Integer, ANewVal As Variant)
+        Set fItems(AIdx) = ANewVal
+    End Sub
+    
+    ' @override
+    Public Function Pop() As Variant
+        If fCount = 0 Then Exit Function
+        Set Pop = fItems(fCount - 1)
+        Call RemoveItem(fCount - 1)
+    End Function
+    
+    ' @override
+    Public Function ToString() As String
+        Dim i As Integer
+        
+        For i = 0 To fCount - 1
+            If i > 0 Then ToString = ToString & "; "
+            ToString = ToString & fItems(i).ToString
+        Next            
+    End Function
+    
+End Class
+
+'---------------------------------------------------------------------------------------------------------------------------------
+
+%REM
+
+    Implementation of AbstractList that contains simple types (strings, integers, etc).
+
+%END REM
+Public Class SimpleList As AbstractList
+    
+    ' @protected @override
+    Function InternalAdd(AItem As Variant) As Integer
+        ReDim Preserve fItems(fCount)
+        fItems(fCount) = AItem
+        InternalAdd = fCount
+        fCount = fCount + 1
+    End Function
+    
+    ' @override
+    Public Function GetItem(idx As Integer) As Variant
+        GetItem = fItems(idx)
+    End Function
+    
+    ' @override
+    Public Function IndexOf(AItem As Variant) As Integer
+        Dim i As Integer
+        
+        IndexOf = -1
+        If fCount = 0 Then Exit Function
+        Dim r As Variant
+        r = ArrayGetIndex(fItems, AItem)
+        If IsNull(r) Then r = -1
+        IndexOf = r
+    End Function
+    
+    ' @override
+    Public Sub SwapItems(AIdx1 As Integer, AIdx2 As Integer)
+        Dim tmp As Variant
+        tmp = fItems(AIdx1)
+        fItems(AIdx1) = fItems(AIdx2)
+        fItems(AIdx2) = tmp
+    End Sub
+    
+    ' @override
+    Public Sub RemoveItem(idx As Integer)
+        Dim i As Integer
+        
+        For i = idx To fCount - 2
+            fItems(i) = fItems(i + 1)
+        Next
+        fCount = fCount - 1
+        If fCount > 0 Then 
+            ReDim Preserve fItems(fCount - 1)
+        Else
+            fItems(0) = Null
+        End If      
+    End Sub
+    
+    ' Deletes empty strings from list
+    Public Sub RemoveEmptyStrings()
+        Dim i As Integer
+        
+        For i = fCount - 1 To 0 Step -1
+            If CStr(fItems(i))="" Then Call RemoveItem(i)
+        Next            
+    End Sub
+    
+    ' @override
+    Public Sub SetItem(AIdx As Integer, ANewVal As Variant)
+        fItems(AIdx) = ANewVal          
+    End Sub
+    
+    ' @override
+    Public Function Pop() As Variant
+        If fCount = 0 Then Exit Function
+        Pop = fItems(fCount - 1)
+        Call RemoveItem(fCount - 1)
+    End Function
+    
+    
+    ' @override
+    Public Function ToString() As String
+        Dim i As Integer
+        
+        For i = 0 To fCount - 1
+            If i > 0 Then ToString = ToString & "; "
+            ToString = ToString & CStr(fItems(i))
+        Next            
+    End Function
+    
+End Class
+
+'---------------------------------------------------------------------------------------------------------------------------------
+%REM
+
+A comparison function, which imposes a total ordering on some collection of objects. Comparators can be passed to a sort method
+
+%END REM
+' @interface
+Public Class Comparator
+    
+    ' Compares its two arguments for order. 
+    ' Returns a negative integer, zero, or a positive integer as the first argument is 
+    ' less than, equal to, or greater than the second.
+    Public Function Compare(o1 As Variant, o2 As Variant) As Integer
+        
+    End Function
+    
+End Class
+%REM
+
+    Base class for object representation of document.
+
+%END REM
+Public Class DocumentObject As AbstractItem
+    Public doc As NotesDocument
+    
+    Public Sub New(ADoc As NotesDocument)
+        Set doc = ADoc
+    End Sub
+    
+    ' @override
+    Public Function HashCode() As String
+        HashCode = doc.UniversalID
+    End Function
+    
+    ' @override
+    Public Function ToString() As String
+        ToString = doc.Form(0) & ":" & doc.UniversalID
+    End Function
+    
+    Public Sub Save()
+        Call doc.ComputeWithForm(False, False)
+        Call doc.Save(True, False)
+    End Sub
+    
+End Class
+'++LotusScript Development Environment:2:2:PackArray:2:8
+' usuwa elementy null z tablicy
+Sub PackArray(AArray As Variant) 
+    Dim count As Integer
+    Dim i As Integer
+    
+    count = 0
+    For i = 0 To UBound(AArray)
+        If Not IsNull(AArray(i)) Then
+            AArray(count) = AArray(i)
+            count = count + 1
+        End If
+    Next
+    If count = 0 Then
+        AArray = Null
+    Else
+        ReDim Preserve AArray(count - 1)
+    End If
+End Sub
+
+
+
+
+
+'++LotusScript Development Environment:2:1:RemoveItemFromArray:6:8
+' usuwa wartość z tablicy
+' doc - dokument z polem
+' field - nazwa pola wielowartościowego
+' value - wartość do usunięcia
+' return - true usunięto wartość, false wartość nie istniała
+Function RemoveItemFromArray(doc As NotesDocument, Field As String, value As String) As Boolean
+    Dim array As Variant
+    Dim idx As Variant
+    
+    array = doc.GetItemValue(Field)
+    idx = ArrayGetIndex(array, value)
+    If Not IsNull(idx) Then
+        array(idx) = ""
+        Call doc.ReplaceItemValue(Field, FullTrim(array))
+        RemoveItemFromArray = True
+    Else 
+        RemoveItemFromArray = False
+    End If          
+End Function
+
+
+
+
+'++LotusScript Development Environment:2:1:AddItemToArray:6:8
+' dodaje wartość do tablicy jeżeli ta wartość nie istniała
+' doc - dokument w którym znajduje się pole 
+' field - nazwa pola wielowartościowego
+' value - wartość którą dodać
+' return - true jeżeli dodano, false jeżeli element istniał - nie dodano
+Function AddItemToArray(doc As NotesDocument, Field As String, value As String) As Boolean
+    Dim item As NotesItem
+    Dim array As Variant
+    Dim idx As Variant
+    
+    Set item = doc.GetFirstItem(Field)
+    If item Is Nothing Then
+        Call doc.ReplaceItemValue(Field, value)
+        AddItemToArray = True
+        Exit Function
+    End If
+    array = item.Values
+    idx = ArrayGetIndex(array, value)
+    If IsNull(idx) Then
+        Call item.AppendToTextList(value)
+        AddItemToArray = True
+    Else 
+        AddItemToArray = False      
+    End If              
+End Function
+
+
+
+'++LotusScript Development Environment:2:1:CompareArrays:3:8
+' porównuje dwie tablice
+' zwraca true jeżeli są jednakowe, false jeżeli różne
+Function CompareArrays(Arr1 As Variant, Arr2 As Variant) As Boolean
+    Dim oldVal As Variant
+    Dim changed As Boolean
+    Dim i As Integer
+    
+    CompareArrays = True
+    If UBound(Arr1) <> UBound(Arr2) Then
+        CompareArrays = False
+    Else
+        For i=0 To UBound(Arr1)
+            If Arr1(i) <> Arr2(i) Then
+                CompareArrays = False
+                Exit For
+            End If
+        Next
+    End If  
+End Function
+
+
+

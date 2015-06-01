@@ -1,0 +1,88 @@
+'++LotusScript Development Environment:2:5:(Options):0:74
+%REM
+	Library SharedBase
+	Created Aug 2, 2013 by Mariusz Jakubowski
+	Description: Library with common functions and classes.
+%END REM
+Option Public
+Option Declare
+
+'---------------------------------------------------------------------------------------------------------------------------------
+
+
+'++LotusScript Development Environment:2:5:(Forward):0:1
+Declare Sub Initialize
+Declare Public Sub InitUnprocessedCollection()
+Declare Public Sub InitWeb()
+Declare Public Sub InitUI()
+Declare Public Sub InitAgent()
+Declare Public Sub InitProfile()    
+
+'++LotusScript Development Environment:2:5:(Declarations):0:10
+' name of a form with configuration
+public Const F_CONFIGURATION = "Configuration"
+
+'---------------------------------------------------------------------------------------------------------------------------------
+
+' global objects
+Public Session As NotesSession
+Public CurrentDatabase As NotesDatabase
+Public Workspace As NotesUIWorkspace
+Public Configuration As NotesDocument
+Public UIDoc As NotesUIDocument             ' current ui document
+Public Document As NotesDocument           ' current backend document
+Public Agent As NotesAgent                  ' current agent
+Public DocCollection As NotesDocumentCollection            ' document collection
+
+
+'---------------------------------------------------------------------------------------------------------------------------------
+
+
+'++LotusScript Development Environment:2:2:Initialize:1:10
+Sub Initialize
+	Set Session = New NotesSession()
+	Set CurrentDatabase = Session.CurrentDatabase
+End Sub
+
+
+
+'++LotusScript Development Environment:2:2:InitUnprocessedCollection:2:8
+' initializes document collection (dc) using unprocessed documents
+Public Sub InitUnprocessedCollection()
+    Set DocCollection = CurrentDatabase.UnprocessedDocuments
+End Sub
+
+
+'++LotusScript Development Environment:2:2:InitWeb:2:8
+' initializes applications from web
+Public Sub InitWeb()
+    Set Document = Session.DocumentContext
+End Sub
+
+
+'++LotusScript Development Environment:2:2:InitUI:1:8
+Public Sub InitUI()
+    Set Workspace = New NotesUIWorkspace()
+    Set uidoc = Workspace.CurrentDocument
+    If Not uidoc Is Nothing Then
+        Set document = uidoc.Document
+    End If
+End Sub
+
+
+
+'++LotusScript Development Environment:2:2:InitAgent:2:8
+' initializes application from agent (document is set using doc id)
+Public Sub InitAgent()
+    Set Agent = Session.CurrentAgent
+    If Agent.ParameterDocID <> "" Then
+        Set Document = CurrentDatabase.GetDocumentByID(Agent.ParameterDocID)      
+    End If
+End Sub
+
+
+'++LotusScript Development Environment:2:2:InitProfile:2:8
+' Initializes configuration document 
+Public Sub InitProfile()    
+    Set Configuration = CurrentDatabase.GetProfileDocument(F_CONFIGURATION)
+End Sub

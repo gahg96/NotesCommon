@@ -1,0 +1,177 @@
+'++LotusScript Development Environment:2:5:(Options):0:74
+%REM
+	Library SharedUI
+	Created Aug 2, 2013 by Mariusz Jakubowski
+	Description: Common UI function.
+%END REM
+Option Public
+Option Declare
+
+Use "SharedLogging"
+Use "SharedBase"
+
+
+
+
+'++LotusScript Development Environment:2:5:(Forward):0:1
+Declare Public Class ChildDocuments
+Declare Public Sub SaveIfEdited(ANoEdit As Boolean)
+Declare Public Function SelectDocument(AView As String, ATitle As String, APrompt As String, ACategory As String) As NotesDocument
+Declare Public Function GetDateRange(ATitle As String, AStartLabel As String, AEndLabel As String) As NotesDateRange
+Declare Public Function SelectDocumentFromDB(ADb As NotesDatabase, AView As String, ATitle As String, APrompt As String, ACategory As String) As NotesDocument
+Declare Public Function ShowPromptList(ATitle As String, APrompt As String, AValues As Variant) As Variant
+
+'++LotusScript Development Environment:2:5:(Declarations):0:10
+Public Const F_PROMPT_LIST = "PromptList"
+Public Const F_DATE_RANGE = "DialogDateRange"
+
+%REM
+	Class ChildDocuments
+	Description: UI Child Documents
+%END REM
+Public Class ChildDocuments
+    
+    ' Adds a new child document Displays a dialogbox to edit the new document.
+    ' A new child is a response to the current document.
+    ' This function is to be called from an action on actionbar in embedded view.
+    ' AForm - name of a form to show in dialogbox
+    ' AMessage - message in dialogbox
+    ' @return new child document
+    Public Function AddChild(AForm As String, AMessage As String) As NotesDocument
+        On Error GoTo errAdd
+        
+        Call InitUI()
+        Set AddChild = Nothing
+        If uidoc.IsNewDoc() Then
+            Call uidoc.Save()
+        End If
+        Dim dChild As New NotesDocument(CurrentDatabase)
+        dChild.Form = AForm
+        Call dChild.MakeResponse(Document)
+        If Workspace.DialogBox(AForm, True, True, False, False, False, False, AMessage, dChild, True, False, True) Then
+            Call dChild.Save(True, False)
+            Call Workspace.ViewRefresh()
+            Set AddChild = dChild
+        End If
+        Exit Function
+errAdd:
+        Error Err, "AddChild:" & Erl() & ":" & Error$
+        Exit Function
+    End Function
+    
+    ' Edits current selected child document in a dialog box.
+    ' This function must be called from QueryOpenDocument on an embedded view.
+    ' Source - source view
+    ' AForm - name of a form to show in dialogbox
+    ' AMessage - message in dialogbox
+    ' @return true if user clicks ok, false otherwise
+    Public Function EditChild(Source As NotesUIView, AForm As String, AMessage As String) As Boolean
+        On Error GoTo err1
+        Dim dChild As NotesDocument
+        
+        EditChild = False
+        Set dChild = Source.Documents.GetFirstDocument()
+        If dChild Is Nothing Then Exit Function
+        If Workspace.DialogBox(AForm, True, True, False, False, False, False, AMessage, dChild, True, False, True) Then
+            Call dChild.Save(True, False)
+            Call Workspace.ViewRefresh()
+            EditChild = True
+        End If
+        Exit Function
+err1:
+        Error Err, "EditChild:" & Erl() & ":" & Error$
+        Exit Function
+    End Function
+    
+    ' Deletes selected child documents.
+    ' This sub must be called from from an action on actionbar in embedded view.
+    Public Sub DeleteChild()
+        On Error GoTo err1
+        
+        Call InitUnprocessedCollection()
+        Dim doc As NotesDocument
+        Set doc = DocCollection.GetFirstDocument()
+        If Not doc Is Nothing Then
+            Call doc.Remove(True)
+            Call Workspace.ViewRefresh()
+        End If
+        Exit Sub
+err1:
+        Error Err, "DeleteChild:" & Erl() & ":" & Error$
+        Exit Sub
+    End Sub
+        
+End Class
+'++LotusScript Development Environment:2:2:SaveIfEdited:3:8
+' If document is in edit mode saves it.
+' When ANoEdit flag is set  edit mode is disabled.
+Public Sub SaveIfEdited(ANoEdit As Boolean)
+    If UIDoc.EditMode Then
+        Call UIDoc.Save()
+        If ANoEdit Then UIDoc.EditMode = False
+    End If
+End Sub
+
+
+
+
+
+'++LotusScript Development Environment:2:1:SelectDocument:2:8
+' Shows dialog for selecting one document from view.
+Public Function SelectDocument(AView As String, ATitle As String, APrompt As String, ACategory As String) As NotesDocument
+    Set SelectDocument = SelectDocumentFromDB(CurrentDatabase, AView, ATitle, APrompt, ACategory)
+End Function
+
+
+'++LotusScript Development Environment:2:1:GetDateRange:3:8
+' Displays a dialog box to enter a dates range.
+' Returns a NotesDateRange object or nothing if user cancels the dialog.
+Public Function GetDateRange(ATitle As String, AStartLabel As String, AEndLabel As String) As NotesDateRange
+    On Error GoTo err1
+    Dim dDates As New NotesDocument(CurrentDatabase)
+    dDates.Form = F_DATE_RANGE
+    If AStartLabel <> "" Then dDates.StartDateLabel = AStartLabel
+    If AEndLabel <> "" Then dDates.EndDateLabel = AEndLabel
+    Call dDates.ComputeWithForm(False, False)
+    If Workspace.DialogBox(F_DATE_RANGE, True, True, False, False, False, False, ATitle, dDates, True, False, True) Then
+        Set GetDateRange = Session.CreateDateRange()
+        Set GetDateRange.StartDateTime = New NotesDateTime("")
+        Set GetDateRange.EndDateTime = New NotesDateTime("")
+        GetDateRange.StartDateTime.LSLocalTime = dDates.StartDate(0)
+        GetDateRange.EndDateTime.LSLocalTime = dDates.EndDate(0)
+    Else
+        Set GetDateRange = Nothing
+    End If                  
+    Exit Function
+err1:
+    Call RaiseError(ATitle)
+    Exit Function
+End Function
+
+
+'++LotusScript Development Environment:2:1:SelectDocumentFromDB:4:8
+
+' Shows dialog for selecting one document from view.
+' Allows to select from different database.
+Public Function SelectDocumentFromDB(ADb As NotesDatabase, AView As String, ATitle As String, APrompt As String, ACategory As String) As NotesDocument
+    Dim dc As NotesDocumentCollection    
+    Set dc = Workspace.PickListCollection(PICKLIST_CUSTOM, False, ADb.Server, ADb.FilePath, AView, ATitle, APrompt, ACategory)
+    Set SelectDocumentFromDB = dc.GetFirstDocument()
+End Function
+
+
+'++LotusScript Development Environment:2:1:ShowPromptList:2:8
+' Shows a prompt with dialog list. You can use aliases in values.   
+Public Function ShowPromptList(ATitle As String, APrompt As String, AValues As Variant) As Variant
+    Dim dTemp As New NotesDocument(CurrentDatabase)
+    dTemp.Values = AValues
+    dTemp.Prompt = APrompt
+    If Workspace.DialogBox(F_PROMPT_LIST, True, True, False, False, False, False, ATitle, dTemp, True, False, True) Then
+        If dTemp.Selected(0) <> "" Then
+            ShowPromptList = dTemp.Selected
+        End If
+    End If
+    Delete dTemp
+End Function
+
+

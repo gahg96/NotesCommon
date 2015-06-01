@@ -1,0 +1,57 @@
+'++LotusScript Development Environment:2:5:(Options):0:74
+Option Public
+Option Declare
+
+%Include "LSCONST.LSS"
+
+'++LotusScript Development Environment:2:5:(Forward):0:1
+Declare Private Function ifTrue(ACondition As Boolean, AMsg As String) As String
+Declare Public Sub RaiseError(AMessage As String)
+Declare Public Sub ShowErrorMessage(AMessage As String)
+Declare Public Sub PrintErrorMessage(AMessage As String)
+
+'++LotusScript Development Environment:2:5:(Declarations):0:10
+%REM
+
+A library for logging erro messages.
+
+@Author
+    MJA
+
+%END REM
+
+
+
+'++LotusScript Development Environment:2:1:ifTrue:2:8
+
+Private Function ifTrue(ACondition As Boolean, AMsg As String) As String
+    If ACondition Then
+        ifTrue = AMsg
+    Else
+        ifTrue = ""
+    End If
+End Function
+
+'++LotusScript Development Environment:2:2:RaiseError:2:8
+
+Public Sub RaiseError(AMessage As String)
+    ' rethrows an error message
+    Error Err, GetThreadInfo(LSI_THREAD_CALLPROC) & ":" & Erl() & ifTrue(Len(AMessage)>0, ":(" & AMessage & ")") & ":" & Error$ 
+End Sub
+
+
+'++LotusScript Development Environment:2:2:ShowErrorMessage:2:8
+
+Public Sub ShowErrorMessage(AMessage As String)
+    ' shows error message in a message box
+    MessageBox GetThreadInfo(LSI_THREAD_CALLPROC) & ":" & Erl()  _
+    & ifTrue(Len(AMessage)>0, ":(" & AMessage & ")")  & ":" & Error$ , MB_OK Or MB_ICONSTOP, "Error"
+End Sub
+
+'++LotusScript Development Environment:2:2:PrintErrorMessage:2:8
+
+Public Sub PrintErrorMessage(AMessage As String)
+    ' prints error message to a status bar
+    Print GetThreadInfo(LSI_THREAD_CALLPROC) & ":" & Erl()  _
+    & ifTrue(Len(AMessage)>0, ":(" & AMessage & ")")  & ":" & Error$ 
+End Sub
