@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <note class='view' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.2'
  replicaid='C1257E57004171E2'>
-<noteinfo noteid='172' unid='249A025B8501C817C1257B2800344187' sequence='7'>
+<noteinfo noteid='172' unid='249A025B8501C817C1257B2800344187' sequence='8'>
 <created><datetime>20130308T103046,47+01</datetime></created>
-<modified><datetime dst='true'>20150601T142316,02+02</datetime></modified>
-<revised><datetime dst='true'>20150601T142316,01+02</datetime></revised>
-<lastaccessed><datetime dst='true'>20150601T142316,01+02</datetime></lastaccessed>
+<modified><datetime dst='true'>20150623T095039,84+02</datetime></modified>
+<revised><datetime dst='true'>20150623T095039,83+02</datetime></revised>
+<lastaccessed><datetime dst='true'>20150623T095039,83+02</datetime></lastaccessed>
 <addedtofile><datetime dst='true'>20150601T135450,77+02</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Mariusz Jakubowski/O=SEJM/C=PL</name><name>CN=Virt Administrator/O=virt</name></updatedby>
+<updatedby><name>CN=Virt Administrator/O=virt</name></updatedby>
 <wassignedby><name>CN=Virt Administrator/O=virt</name></wassignedby>
 <item name='$FormulaClass' sign='true'><text>1</text></item>
 <item name='$TITLE' sign='true'><text>($All)|$All</text></item>
@@ -58,14 +58,15 @@ AAAABAAAAAAA//8AAAAAAAAAAAAAAAAAAFdDAQEACQAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAP//
 AAAAAAAAAAAAAAAAAABCABAAAAABAP///wAFAP///wABAAAAAAAAAAAAAAAAAAEA////AAEA////
 AAAAAQAAAAAAAQAAAAAAAQAAAAAAAAAIAAAAAAABAA==
 </rawitemdata></item>
-<item name='$Comment' sign='true'><text>wszystkie dokumenty</text></item>
-<item name='$DesignerVersion' sign='true'><text>8.5.2</text></item>
+<item name='$Comment' sign='true'><text>all documents</text></item>
+<item name='$Flags'><text>Yw</text></item>
+<item name='$DesignerVersion'><text>8.5.3</text></item>
 <item name='$V5ACTIONS' sign='true'>
 <rawitemdata type='1'>
 vRwRAAAAAQABAAAAAQAAAAAAAAAAAAAACAACAHn/bAABAOzp2AABAAAAAAAJAAAAAAABAOzp2AAA
 AB8AAAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPz/OgAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAEAAAAAAAAAAAAAAAAAAAC+/yYAAAAFAAAAnQEAAAsAAAAAAAAAQ2F0ZWdvcmlfemUC
+AAAAAAAAAAEAAAAAAAAAAAAAAAAAAAC+/yYAAAAFAAAAnQEAAAsAAAAAAAAAQ2F0ZWdvcmlfemUA
 AQBOfL7/KAAAAAUAAACdAQAADgAAAAAAAABfRWRpdCBEb2N1bWVudAIAAgq+/ygAAAAFAAAAnQEA
 AA4AAAAAAAAAX1NlbmQgRG9jdW1lbnQDAAMKvv8iAAAABQAAAJ0BAAAIAAAAAAAAAF9Gb3J3YXJk
 BAAECr7/LAAAAAUAAACdAQAAEgAAAAAAAABfTW92ZSBUbyBGb2xkZXIuLi4FAD18vv8uAAAABQAA
@@ -77,7 +78,6 @@ vRwRAAAAAQABAAAAAQAAAAAAAAAAAAAACAACAL7/JgAAAAUAAACdAQAACwAAAAAAAABDYXRlZ29y
 aV96ZQABAE58vv8oAAAABQAAAJ0BAAAOAAAAAAAAAF9FZGl0IERvY3VtZW50AgACCr7/KAAAAAUA
 AACdAQAADgAAAAAAAABfU2VuZCBEb2N1bWVudAMAAwq+/yIAAAAFAAAAnQEAAAgAAAAAAAAAX0Zv
 cndhcmQEAAQKvv8sAAAABQAAAJ0BAAASAAAAAAAAAF9Nb3ZlIFRvIEZvbGRlci4uLgUAPXy+/y4A
-AAAFAAAAnQEAABMAAAAAAAAAX1JlbW92ZSBGcm9tIEZvbGRlcgAGAD58
-</rawitemdata></item>
-<item name='$Flags'><text>Yw</text></item></note>
+AAAFAAAAnQEAABMAAAAAAAAAX1JlbW92ZSBGcm9tIEZvbGRlcm4GAD58
+</rawitemdata></item></note>
 

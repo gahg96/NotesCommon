@@ -12,18 +12,18 @@ Use "SharedCollections"
 
 
 '++LotusScript Development Environment:2:5:(Forward):0:1
-Declare Sub OpenDocumentByUNID(AField As String, ADB As NotesDatabase)
-Declare Function GetTempDir() As String
-Declare Function ReplaceIfChanged(ADoc As NotesDocument, AField As String, ANewVal As Variant) As Boolean
+Declare Public Sub OpenDocumentByUNID(AField As String, ADB As NotesDatabase)
+Declare Public Function ReplaceIfChanged(ADoc As NotesDocument, AField As String, ANewVal As Variant) As Boolean
+Declare Public Function GetTempDir() As String
 Declare Public Function IsMember(ARole As String) As Boolean
+Declare Public Function MakeProperFileName(AText As String) As String
 Declare Public Function IsAdmin() As Boolean
-Declare Function MakeProperFileName(AText As String) As String
 Declare Public Function iif(ACondition As Boolean, ATrue As Variant, AFalse As Variant) As Variant
 
 '++LotusScript Development Environment:2:5:(Declarations):0:2
 
 '++LotusScript Development Environment:2:2:OpenDocumentByUNID:1:8
-Sub OpenDocumentByUNID(AField As String, ADB As NotesDatabase)
+Public Sub OpenDocumentByUNID(AField As String, ADB As NotesDatabase)
     ' opens document using unid in field AField
     Dim w As New NotesUIWorkspace()
     Dim s As New NotesSession()
@@ -45,23 +45,19 @@ Sub OpenDocumentByUNID(AField As String, ADB As NotesDatabase)
 End Sub
 
 
-'++LotusScript Development Environment:2:1:GetTempDir:5:8
+
+'++LotusScript Development Environment:2:1:ReplaceIfChanged:11:8
 %REM
-	Function GetTempDir
-	Description: Returns directory used for storing temporary files.
+	Compares old values from a document with new values. 
+  If new values are different then it replaces the field on a document
+  with new values and returns true.
+  This function can be used to implement change logging or to decide if document requires saving.
+  @param ADoc - a document where to check for old values
+  @param AField - a name of a field with old values
+  @param ANewVal - new value(s)
+  @return true if values are different and were changed, false if values are identical 
 %END REM
-Function GetTempDir() As String
-    GetTempDir = Environ("Temp")
-End Function
-
-
-'++LotusScript Development Environment:2:1:ReplaceIfChanged:6:8
-' porównuje stare i nowe wartości i zmienia jeżeli się różnią
-' ADoc - dokument na którym sprawdzić wartość
-' AField - pole do sprawdzenia
-' ANewVal - nowa wartość
-' return - true jeżeli zmieniono, false - nie zmieniono wartości
-Function ReplaceIfChanged(ADoc As NotesDocument, AField As String, ANewVal As Variant) As Boolean
+Public Function ReplaceIfChanged(ADoc As NotesDocument, AField As String, ANewVal As Variant) As Boolean
     If Not CompareArrays(ADoc.GetItemValue(AField), ANewVal) Then
         Call ADoc.ReplaceItemValue(AField, ANewVal)
         ReplaceIfChanged = True
@@ -69,6 +65,17 @@ Function ReplaceIfChanged(ADoc As NotesDocument, AField As String, ANewVal As Va
         ReplaceIfChanged = False
     End If
 End Function
+
+
+
+'++LotusScript Development Environment:2:1:GetTempDir:4:8
+%REM
+	Returns directory used for storing temporary files.
+%END REM
+Public Function GetTempDir() As String
+    GetTempDir = Environ("Temp")
+End Function
+
 
 
 '++LotusScript Development Environment:2:1:IsMember:2:8
@@ -80,19 +87,14 @@ Public Function IsMember(ARole As String) As Boolean
 End Function
 
 
-'++LotusScript Development Environment:2:1:IsAdmin:2:8
-' Checks if user has [Admin] role.
-Public Function IsAdmin() As Boolean
-    Dim role As Variant   
-    role = Evaluate(|@IsMember("[Admin]"; @UserRoles)|)
-    IsAdmin = role(0)
-End Function
 
-
-'++LotusScript Development Environment:2:1:MakeProperFileName:3:8
-' tworzy poprawną nazwę pliku
-' zamienia znaki spoza A-Z i 0-9 na _ 
-Function MakeProperFileName(AText As String) As String
+'++LotusScript Development Environment:2:1:MakeProperFileName:6:8
+%REM
+	Makes a proper file name from a parameter.
+	This function replaces all characters that are outside
+	the range A-Z and 0-9 for a "_" character.
+%END REM
+Public Function MakeProperFileName(AText As String) As String
     Dim i As Integer
     Dim l As String 
     
@@ -107,14 +109,26 @@ End Function
 
 
 
+'++LotusScript Development Environment:2:1:IsAdmin:2:8
+' Checks if user has [Admin] role.
+Public Function IsAdmin() As Boolean
+    Dim role As Variant   
+    role = Evaluate(|@IsMember("[Admin]"; @UserRoles)|)
+    IsAdmin = role(0)
+End Function
 
-'++LotusScript Development Environment:2:1:iif:1:8
+
+
+'++LotusScript Development Environment:2:1:iif:5:8
+%REM
+    Returns one value if a specified condition evaluates to True, 
+    or another value if it evaluates to False		
+%END REM
 Public Function iif(ACondition As Boolean, ATrue As Variant, AFalse As Variant) As Variant
-    ' Returns one value if a specified condition evaluates to True, 
-    ' or another value if it evaluates to False
     If ACondition Then
         iif = ATrue
     Else
         iif = AFalse
     End If
 End Function
+

@@ -18,13 +18,12 @@ Declare Public Class ChildDocuments
 Declare Public Sub SaveIfEdited(ANoEdit As Boolean)
 Declare Public Function SelectDocument(AView As String, ATitle As String, APrompt As String, ACategory As String) As NotesDocument
 Declare Public Function GetDateRange(ATitle As String, AStartLabel As String, AEndLabel As String) As NotesDateRange
-Declare Public Function SelectDocumentFromDB(ADb As NotesDatabase, AView As String, ATitle As String, APrompt As String, ACategory As String) As NotesDocument
 Declare Public Function ShowPromptList(ATitle As String, APrompt As String, AValues As Variant) As Variant
+Declare Public Function SelectDocumentFromDB(ADb As NotesDatabase, AView As String, ATitle As String, APrompt As String, ACategory As String) As NotesDocument
 
 '++LotusScript Development Environment:2:5:(Declarations):0:10
 Public Const F_PROMPT_LIST = "PromptList"
 Public Const F_DATE_RANGE = "DialogDateRange"
-
 %REM
 	Class ChildDocuments
 	Description: UI Child Documents
@@ -102,6 +101,8 @@ err1:
     End Sub
         
 End Class
+
+
 '++LotusScript Development Environment:2:2:SaveIfEdited:3:8
 ' If document is in edit mode saves it.
 ' When ANoEdit flag is set  edit mode is disabled.
@@ -114,13 +115,12 @@ End Sub
 
 
 
-
-
 '++LotusScript Development Environment:2:1:SelectDocument:2:8
 ' Shows dialog for selecting one document from view.
 Public Function SelectDocument(AView As String, ATitle As String, APrompt As String, ACategory As String) As NotesDocument
     Set SelectDocument = SelectDocumentFromDB(CurrentDatabase, AView, ATitle, APrompt, ACategory)
 End Function
+
 
 
 '++LotusScript Development Environment:2:1:GetDateRange:3:8
@@ -149,16 +149,6 @@ err1:
 End Function
 
 
-'++LotusScript Development Environment:2:1:SelectDocumentFromDB:4:8
-
-' Shows dialog for selecting one document from view.
-' Allows to select from different database.
-Public Function SelectDocumentFromDB(ADb As NotesDatabase, AView As String, ATitle As String, APrompt As String, ACategory As String) As NotesDocument
-    Dim dc As NotesDocumentCollection    
-    Set dc = Workspace.PickListCollection(PICKLIST_CUSTOM, False, ADb.Server, ADb.FilePath, AView, ATitle, APrompt, ACategory)
-    Set SelectDocumentFromDB = dc.GetFirstDocument()
-End Function
-
 
 '++LotusScript Development Environment:2:1:ShowPromptList:2:8
 ' Shows a prompt with dialog list. You can use aliases in values.   
@@ -172,6 +162,17 @@ Public Function ShowPromptList(ATitle As String, APrompt As String, AValues As V
         End If
     End If
     Delete dTemp
+End Function
+
+
+
+'++LotusScript Development Environment:2:1:SelectDocumentFromDB:3:8
+' Shows dialog for selecting one document from view.
+' Allows to select from different database.
+Public Function SelectDocumentFromDB(ADb As NotesDatabase, AView As String, ATitle As String, APrompt As String, ACategory As String) As NotesDocument
+    Dim dc As NotesDocumentCollection    
+    Set dc = Workspace.PickListCollection(PICKLIST_CUSTOM, False, ADb.Server, ADb.FilePath, AView, ATitle, APrompt, ACategory)
+    Set SelectDocumentFromDB = dc.GetFirstDocument()
 End Function
 
 

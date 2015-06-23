@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <note default='true' class='view' xmlns='http://www.lotus.com/dxl' version='9.0'
  maintenanceversion='1.2' replicaid='C1257E57004171E2'>
-<noteinfo noteid='23e' unid='1378B770283772CDC1257BBB00407E96' sequence='57'>
+<noteinfo noteid='23e' unid='1378B770283772CDC1257BBB00407E96' sequence='58'>
 <created><datetime dst='true'>20130802T134427,10+02</datetime></created>
-<modified><datetime dst='true'>20150601T142316,76+02</datetime></modified>
-<revised><datetime dst='true'>20150601T142316,75+02</datetime></revised>
-<lastaccessed><datetime dst='true'>20150601T142316,75+02</datetime></lastaccessed>
+<modified><datetime dst='true'>20150623T095131,34+02</datetime></modified>
+<revised><datetime dst='true'>20150623T095131,33+02</datetime></revised>
+<lastaccessed><datetime dst='true'>20150623T095131,33+02</datetime></lastaccessed>
 <addedtofile><datetime dst='true'>20150601T135451,69+02</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Mariusz Jakubowski/O=SEJM/C=PL</name><name>CN=Virt Administrator/O=virt</name></updatedby>
+<updatedby><name>CN=Virt Administrator/O=virt</name></updatedby>
 <wassignedby><name>CN=Virt Administrator/O=virt</name></wassignedby>
 <item name='$FormulaClass' sign='true'><text>1</text></item>
 <item name='$TITLE' sign='true'><text>UI\Documents|ui_documents</text></item>
@@ -23,7 +23,7 @@ BQAEAEZvcm0BAAgARG9jdW1lbnQKAgMABwAKAAQACUwxUw==
 <rawitemdata type='2'>
 EgABAABEgGYAAAAFAFRpdGxl
 </rawitemdata></item>
-<item name='$Comment' sign='true'><text>przykładowy widok</text></item>
+<item name='$Comment' sign='true'><text>sample view</text></item>
 <item name='$Flags'><text>Ydw</text></item>
 <item name='$DesignerVersion'><text>8.5.3</text></item>
 <item name='$ViewFormat' sign='true'>
@@ -118,7 +118,7 @@ vRwBAAAAAQABAAAAJQAAAAAAAAABAQAJCAACAHn/bAABAP///wABAAAAAAABAAAAAAABAO/v7wAA
 AB8AAQAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAHH/LgAAAAAAAwATAAwAAAAAAAAAAAAAAAAAAAAAAAAAAABi
 Z190b3BfMi5wbmf8/zoAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAMDA
-wAAAAAAAAAAAAAAAvv9OAAAAAQAAAJ8BAAANAAAAAAAAAE5vd3kgZG9rdW1lbnQAKgAAAB4AAgDo
+wAAAAAAAAAAAAAAAvv9OAAAAAQAAAJ8BAAANAAAAAAAAAE5vd3kgZG9rdW1lbnQFKgAAAB4AAgDo
 AwAAAAAAAAEACABEb2N1bWVudO0CAwAHAAoAAwAJNFMA
 </rawitemdata></item></note>
 

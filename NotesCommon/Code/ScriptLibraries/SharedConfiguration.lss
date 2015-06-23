@@ -10,50 +10,21 @@ Use "SharedBase"
 Use "SharedLogging"
 Use "SharedNative"
 
+
 '++LotusScript Development Environment:2:5:(Forward):0:1
-Declare Public Sub ResetCache(AType As String)
 Declare Public Sub CopyToClipboard()
 Declare Public Sub PasteFromClipboard()
 Declare Public Sub UpdateLastSave()
 
 '++LotusScript Development Environment:2:5:(Declarations):0:10
 
-Public Const CACHE_MENU = "menu"
-Public Const CACHE_NEWS = "news"
-Public Const CACHE_CONFIG = "config"
-Public Const CACHE_LINKS = "links"
-
-
-
-'++LotusScript Development Environment:2:2:ResetCache:5:8
-%REM
-    Sub ResetCache
-    Description: Resetuje cache o typie AType.
-%END REM
-Public Sub ResetCache(AType As String)
-    On Error GoTo err1
-    Dim objHttp As Variant
-    Set objHttp = CreateObject("Microsoft.XMLHTTP")
-    Dim profile As NotesDocument
-    Set profile = CurrentDatabase.GetProfileDocument(F_CONFIGURATION, CurrentDatabase.Server)
-    Dim url As String
-    url = profile.WebAddr(0) & "resetCache.xsp?type=" + AType
-    Print "reset " + url
-    Call objHttp.open("GET", url, False, "", "")
-    Call objHttp.send("")
-    Set objHttp = Nothing
-    Exit Sub
-err1:
-    Set objHttp = Nothing
-    Call ShowErrorMessage("")
-    Exit Sub        
-End Sub
-
-
-'++LotusScript Development Environment:2:2:CopyToClipboard:5:8
+'++LotusScript Development Environment:2:2:CopyToClipboard:8:8
 %REM
     Sub CopyToClipboard
     Description: Copy document contents to clipboard.
+    Each field is saved in text format, each field is delimited by new line.
+    The format for each line is:
+    ItemName\: ItemValue (without \ character)
 %END REM
 Public Sub CopyToClipboard()
     On Error GoTo err1
@@ -74,10 +45,11 @@ End Sub
 
 
 
-'++LotusScript Development Environment:2:2:PasteFromClipboard:5:8
+'++LotusScript Development Environment:2:2:PasteFromClipboard:6:8
 %REM
     Sub PasteFromClipboard
     Description: Paste field values from clipboard into document.
+    See CopyToClipboard for description of a data format.
 %END REM
 Public Sub PasteFromClipboard()
     On Error GoTo err1
@@ -111,7 +83,7 @@ End Sub
 '++LotusScript Development Environment:2:2:UpdateLastSave:5:8
 %REM
     Sub UpdateLastSave
-    Description: Uaktualnia dane o ostanim zapisie 
+    Description: Updates information about last save.
 %END REM
 Public Sub UpdateLastSave()
     Call InitUI()   

@@ -17,18 +17,15 @@ Declare Public Class ObjectList As AbstractList
 Declare Public Class SimpleList As AbstractList
 Declare Public Class Comparator
 Declare Public Class DocumentObject As AbstractItem
-Declare Sub PackArray(AArray As Variant) 
-Declare Function RemoveItemFromArray(doc As NotesDocument, Field As String, value As String) As Boolean
-Declare Function AddItemToArray(doc As NotesDocument, Field As String, value As String) As Boolean
-Declare Function CompareArrays(Arr1 As Variant, Arr2 As Variant) As Boolean
+Declare Public Sub PackArray(AArray As Variant) 
+Declare Public Function RemoveItemFromArray(doc As NotesDocument, Field As String, value As String) As Boolean
+Declare Public Function AddItemToArray(doc As NotesDocument, Field As String, value As String) As Boolean
+Declare Public Function CompareArrays(Arr1 As Variant, Arr2 As Variant) As Boolean
 
 '++LotusScript Development Environment:2:5:(Declarations):0:10
-
-'---------------------------------------------------------------------------------------------------------------------------------
-
 %REM
 
-An ordered collection (also known as a sequence).
+  An ordered collection (also known as a sequence).
 
 %END REM
 Public Class AbstractList
@@ -202,27 +199,33 @@ Public Class AbstractList
             If ACmp Is Nothing Then
                 If IsObject(fItems(0)) Then
                     ' no comparator - objects
-                    Do While fItems(Low).CompareTo(TestElement) < 0     'Find lowest element that is >= TestElement.
+                  'Find lowest element that is >= TestElement.
+                    Do While fItems(Low).CompareTo(TestElement) < 0
                         Low = Low + 1
                     Loop
-                    Do While fItems(High).CompareTo(TestElement) > 0    'Find highest element that is <= TestElement.
+                  'Find highest element that is <= TestElement.
+                    Do While fItems(High).CompareTo(TestElement) > 0
                         High = High - 1
                     Loop
                 Else
                     ' no comparator - simple types
-                    Do While fItems(Low) < TestElement      'Find lowest element that is >= TestElement.
+                  'Find lowest element that is >= TestElement.
+                    Do While fItems(Low) < TestElement
                         Low = Low + 1
                     Loop
-                    Do While fItems(High) > TestElement    'Find highest element that is <= TestElement.
+                  'Find highest element that is <= TestElement.
+                    Do While fItems(High) > TestElement
                         High = High - 1
                     Loop
                 End If
             Else 
                 ' we have a comparator
-                Do While ACmp.Compare(fItems(Low), TestElement) < 0     'Find lowest element that is >= TestElement.
+                ' Find lowest element that is >= TestElement.
+                Do While ACmp.Compare(fItems(Low), TestElement) < 0     
                     Low = Low + 1
                 Loop
-                Do While ACmp.Compare(fItems(High), TestElement) > 0    'Find highest element that is <= TestElement.
+                ' Find highest element that is <= TestElement.
+                Do While ACmp.Compare(fItems(High), TestElement) > 0
                     High = High - 1
                 Loop
             End If
@@ -245,12 +248,9 @@ err1:
 End Class
 
 
-
-'---------------------------------------------------------------------------------------------------------------------------------
-
 %REM
 
-    Base class for items in ObjectList
+    Base class for items in ObjectList.
 
 %END REM
 Public Class AbstractItem
@@ -286,10 +286,6 @@ Public Class AbstractItem
     
 End Class
 
-
-
-
-'---------------------------------------------------------------------------------------------------------------------------------
 
 %REM
 
@@ -414,7 +410,6 @@ Public Class ObjectList As AbstractList
     
 End Class
 
-'---------------------------------------------------------------------------------------------------------------------------------
 
 %REM
 
@@ -505,10 +500,11 @@ Public Class SimpleList As AbstractList
     
 End Class
 
-'---------------------------------------------------------------------------------------------------------------------------------
+
 %REM
 
-A comparison function, which imposes a total ordering on some collection of objects. Comparators can be passed to a sort method
+  A comparison function, which imposes a total ordering on some collection of objects. 
+  Comparators can be passed to a sort method.
 
 %END REM
 ' @interface
@@ -522,9 +518,11 @@ Public Class Comparator
     End Function
     
 End Class
+
+
 %REM
 
-    Base class for object representation of document.
+    Base class for object representation of a document.
 
 %END REM
 Public Class DocumentObject As AbstractItem
@@ -550,9 +548,13 @@ Public Class DocumentObject As AbstractItem
     End Sub
     
 End Class
-'++LotusScript Development Environment:2:2:PackArray:2:8
-' usuwa elementy null z tablicy
-Sub PackArray(AArray As Variant) 
+
+
+'++LotusScript Development Environment:2:2:PackArray:4:8
+%REM
+  Removes null elements from an array.
+%END REM 
+Public Sub PackArray(AArray As Variant) 
     Dim count As Integer
     Dim i As Integer
     
@@ -572,15 +574,15 @@ End Sub
 
 
 
-
-
-'++LotusScript Development Environment:2:1:RemoveItemFromArray:6:8
-' usuwa wartość z tablicy
-' doc - dokument z polem
-' field - nazwa pola wielowartościowego
-' value - wartość do usunięcia
-' return - true usunięto wartość, false wartość nie istniała
-Function RemoveItemFromArray(doc As NotesDocument, Field As String, value As String) As Boolean
+'++LotusScript Development Environment:2:1:RemoveItemFromArray:8:8
+%REM
+	Removes a value from a field in a document.
+	@param doc - a document
+	@param field - name of a field to search for a value
+	@param value - a value to remove
+	@returns - true if value was removed, false if value doesn't exists and was not removed
+%END REM
+Public Function RemoveItemFromArray(doc As NotesDocument, Field As String, value As String) As Boolean
     Dim array As Variant
     Dim idx As Variant
     
@@ -597,14 +599,16 @@ End Function
 
 
 
-
-'++LotusScript Development Environment:2:1:AddItemToArray:6:8
-' dodaje wartość do tablicy jeżeli ta wartość nie istniała
-' doc - dokument w którym znajduje się pole 
-' field - nazwa pola wielowartościowego
-' value - wartość którą dodać
-' return - true jeżeli dodano, false jeżeli element istniał - nie dodano
-Function AddItemToArray(doc As NotesDocument, Field As String, value As String) As Boolean
+'++LotusScript Development Environment:2:1:AddItemToArray:9:8
+%REM
+	Adds a value to a field in a document.
+	If the value already exists in the field it is not added.
+	@param doc - a document where to add a value
+	@param field - a name of a field
+	@param value - a value to add to a field
+	@return - true if value was added, false if field already contained value 
+%END REM
+Public Function AddItemToArray(doc As NotesDocument, Field As String, value As String) As Boolean
     Dim item As NotesItem
     Dim array As Variant
     Dim idx As Variant
@@ -627,10 +631,14 @@ End Function
 
 
 
-'++LotusScript Development Environment:2:1:CompareArrays:3:8
-' porównuje dwie tablice
-' zwraca true jeżeli są jednakowe, false jeżeli różne
-Function CompareArrays(Arr1 As Variant, Arr2 As Variant) As Boolean
+'++LotusScript Development Environment:2:1:CompareArrays:7:8
+%REM
+	Compares two arrays.
+	@param Arr1 - first array
+	@param Arr2 - second array
+	@returns true if arrays are identical, false otherwise
+%END REM
+Public Function CompareArrays(Arr1 As Variant, Arr2 As Variant) As Boolean
     Dim oldVal As Variant
     Dim changed As Boolean
     Dim i As Integer
@@ -647,6 +655,5 @@ Function CompareArrays(Arr1 As Variant, Arr2 As Variant) As Boolean
         Next
     End If  
 End Function
-
 
 

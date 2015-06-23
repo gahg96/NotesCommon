@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <note class='form' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.2'
  replicaid='C1257E57004171E2'>
-<noteinfo noteid='206' unid='AB52868684BCA749C1257B2800362F8F' sequence='11'>
+<noteinfo noteid='206' unid='AB52868684BCA749C1257B2800362F8F' sequence='12'>
 <created><datetime>20130308T105151,19+01</datetime></created>
-<modified><datetime dst='true'>20150601T142316,78+02</datetime></modified>
-<revised><datetime dst='true'>20150601T142316,77+02</datetime></revised>
-<lastaccessed><datetime dst='true'>20150601T142316,77+02</datetime></lastaccessed>
+<modified><datetime dst='true'>20150623T095159,77+02</datetime></modified>
+<revised><datetime dst='true'>20150623T095159,76+02</datetime></revised>
+<lastaccessed><datetime dst='true'>20150623T095159,76+02</datetime></lastaccessed>
 <addedtofile><datetime dst='true'>20150601T135451,41+02</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Mariusz Jakubowski/O=SEJM/C=PL</name><name>CN=Virt Administrator/O=virt</name></updatedby>
+<updatedby><name>CN=Virt Administrator/O=virt</name></updatedby>
 <wassignedby><name>CN=Virt Administrator/O=virt</name></wassignedby>
 <item name='OriginalModTime' sign='true'><datetime>20081215T102735,91+01</datetime></item>
 <item name='$BackgroundRepeat'><text>1</text></item>
@@ -22,7 +22,7 @@ AABiZ190b3AucG5n3gYBAJkA
 X/8QAAIADwAHAAAAAAAAAA==
 </rawitemdata></item>
 <item name='$TITLE'><text>User</text></item>
-<item name='$Comment' sign='true'><text>dane o zalogowanym użytkowniku</text></item>
+<item name='$Comment' sign='true'><text>info about logged user</text></item>
 <item name='$Info' sign='true'>
 <rawitemdata type='1'>
 hhgBAIAAAAAAAAAAAQABAP///wAQAAAA

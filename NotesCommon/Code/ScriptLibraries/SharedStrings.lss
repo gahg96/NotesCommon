@@ -10,44 +10,68 @@ Option Declare
 
 
 '++LotusScript Development Environment:2:5:(Forward):0:1
-Declare Function ReplaceString(ByVal strArg As String,ByVal strSrc As String, ByVal strDst As String) As String
-Declare Function MiddleSubStr(AString As String, AStart As String, AEnd As String) As String
-Declare Function AddBracket(AStr As String) As String
-Declare Function AddQuotation(AStr As String) As String
+Declare Public Function ReplaceString(ByVal strArg As String, ByVal strSrc As String, ByVal strDst As String) As String
+Declare Public Function MiddleSubStr(AString As String, AStart As String, AEnd As String) As String
+Declare Public Function AddBracket(AStr As String) As String
+Declare Public Function AddQuotation(AStr As String) As String
 
 '++LotusScript Development Environment:2:5:(Declarations):0:2
 
-'++LotusScript Development Environment:2:1:ReplaceString:1:8
-Function ReplaceString(ByVal strArg As String,ByVal strSrc As String, ByVal strDst As String) As String
+'++LotusScript Development Environment:2:1:ReplaceString:8:8
+%REM
+	Replaces a substring with another substring.
+	@param strArg a string to modify
+	@param strSrc a string to search for
+	@param strDst a replacement string
+	@return a string where strSrc is replaced with strDst
+%END REM
+Public Function ReplaceString(ByVal strArg As String, ByVal strSrc As String, ByVal strDst As String) As String
     Dim iPos As Integer
     iPos = InStr(strArg, strSrc)
     While iPos > 0
-        strArg = Left$(strArg, iPos - 1) + strDst + Mid$(strArg, iPos +Len(strSrc))
+        strArg = Left$(strArg, iPos - 1) + strDst + Mid$(strArg, iPos + Len(strSrc))
         iPos = InStr(iPos + Len(strDst), strArg, strSrc)
     Wend
     ReplaceString = strArg
 End Function
 
-'++LotusScript Development Environment:2:1:MiddleSubStr:1:8
-Function MiddleSubStr(AString As String, AStart As String, AEnd As String) As String
-    ' returns substring contained between  AStart and AEnd
+
+
+'++LotusScript Development Environment:2:1:MiddleSubStr:8:8
+%REM
+	Returns substring contained between  AStart and AEnd.
+	@param AString a string to search in
+	@param AStart a prefix to search for
+	@param AEnd a  suffix to search for
+	@return a string between AStart and AEnd
+%END REM
+Public Function MiddleSubStr(AString As String, AStart As String, AEnd As String) As String
     MiddleSubStr = StrRight(AString, AStart)
     If InStr(MiddleSubStr, AEnd) Then MiddleSubStr = StrLeft(MiddleSubStr, AEnd)
 End Function
 
 
 
-'++LotusScript Development Environment:2:1:AddBracket:2:8
-' obejmuje string w nawiasy
-Function AddBracket(AStr As String) As String
+'++LotusScript Development Environment:2:1:AddBracket:6:8
+%REM
+	Wraps a string in brackets: (AStr).
+	@param AStr - a string to wrap
+	@return a string wrapped in ( and )
+%END REM
+Public Function AddBracket(AStr As String) As String
     AddBracket = "(" & AStr & ")"
 End Function
 
 
 
-'++LotusScript Development Environment:2:1:AddQuotation:2:8
-' obejmuje string w cudzysłowie
-Function AddQuotation(AStr As String) As String
+'++LotusScript Development Environment:2:1:AddQuotation:7:8
+%REM
+	 Wraps a string in quotes: "AStr".
+  @param AStr - a string to wrap
+  @return a string wrapped in "
+	
+%END REM
+Public Function AddQuotation(AStr As String) As String
     AddQuotation = |"| & AStr & |"|
 End Function
 
