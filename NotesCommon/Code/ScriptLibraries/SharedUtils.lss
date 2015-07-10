@@ -13,11 +13,11 @@ Use "SharedCollections"
 
 '++LotusScript Development Environment:2:5:(Forward):0:1
 Declare Public Sub OpenDocumentByUNID(AField As String, ADB As NotesDatabase)
-Declare Public Function ReplaceIfChanged(ADoc As NotesDocument, AField As String, ANewVal As Variant) As Boolean
 Declare Public Function GetTempDir() As String
+Declare Public Function ReplaceIfChanged(ADoc As NotesDocument, AField As String, ANewVal As Variant) As Boolean
 Declare Public Function IsMember(ARole As String) As Boolean
-Declare Public Function MakeProperFileName(AText As String) As String
 Declare Public Function IsAdmin() As Boolean
+Declare Public Function MakeProperFileName(AText As String) As String
 Declare Public Function iif(ACondition As Boolean, ATrue As Variant, AFalse As Variant) As Variant
 
 '++LotusScript Development Environment:2:5:(Declarations):0:2
@@ -46,6 +46,16 @@ End Sub
 
 
 
+'++LotusScript Development Environment:2:1:GetTempDir:4:8
+%REM
+	Returns directory used for storing temporary files.
+%END REM
+Public Function GetTempDir() As String
+    GetTempDir = Environ("Temp")
+End Function
+
+
+
 '++LotusScript Development Environment:2:1:ReplaceIfChanged:11:8
 %REM
 	Compares old values from a document with new values. 
@@ -58,22 +68,18 @@ End Sub
   @return true if values are different and were changed, false if values are identical 
 %END REM
 Public Function ReplaceIfChanged(ADoc As NotesDocument, AField As String, ANewVal As Variant) As Boolean
+    On Error GoTo err1
     If Not CompareArrays(ADoc.GetItemValue(AField), ANewVal) Then
         Call ADoc.ReplaceItemValue(AField, ANewVal)
         ReplaceIfChanged = True
     Else
         ReplaceIfChanged = False
     End If
-End Function
-
-
-
-'++LotusScript Development Environment:2:1:GetTempDir:4:8
-%REM
-	Returns directory used for storing temporary files.
-%END REM
-Public Function GetTempDir() As String
-    GetTempDir = Environ("Temp")
+    Exit Function
+err1:
+    Call ADoc.ReplaceItemValue(AField, ANewVal)
+    ReplaceIfChanged = True
+    Exit Function
 End Function
 
 
@@ -84,6 +90,16 @@ Public Function IsMember(ARole As String) As Boolean
     Dim role As Variant
     role = Evaluate(|@IsMember("| + ARole + |"; @UserRoles)|)
     IsMember = role(0)
+End Function
+
+
+
+'++LotusScript Development Environment:2:1:IsAdmin:2:8
+' Checks if user has [Admin] role.
+Public Function IsAdmin() As Boolean
+    Dim role As Variant   
+    role = Evaluate(|@IsMember("[Admin]"; @UserRoles)|)
+    IsAdmin = role(0)
 End Function
 
 
@@ -105,16 +121,6 @@ Public Function MakeProperFileName(AText As String) As String
         End If
         MakeProperFileName = MakeProperFileName & l
     Next
-End Function
-
-
-
-'++LotusScript Development Environment:2:1:IsAdmin:2:8
-' Checks if user has [Admin] role.
-Public Function IsAdmin() As Boolean
-    Dim role As Variant   
-    role = Evaluate(|@IsMember("[Admin]"; @UserRoles)|)
-    IsAdmin = role(0)
 End Function
 
 
