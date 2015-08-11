@@ -69,9 +69,15 @@ End Function
 %END REM
 Public Function ReplaceIfChanged(ADoc As NotesDocument, AField As String, ANewVal As Variant) As Boolean
     On Error GoTo err1
+    If Not IsArray(ANewVal) Then
+        Dim v(0) As Variant
+        v(0) = ANewVal
+        ANewVal = v 
+    End If
     If Not CompareArrays(ADoc.GetItemValue(AField), ANewVal) Then
         Call ADoc.ReplaceItemValue(AField, ANewVal)
         ReplaceIfChanged = True
+        'Print "detected change " & ADoc.Universalid & "@" & AField
     Else
         ReplaceIfChanged = False
     End If
@@ -79,6 +85,7 @@ Public Function ReplaceIfChanged(ADoc As NotesDocument, AField As String, ANewVa
 err1:
     Call ADoc.ReplaceItemValue(AField, ANewVal)
     ReplaceIfChanged = True
+    'Print "error, assuming change " & ADoc.Universalid & "@" & AField
     Exit Function
 End Function
 
