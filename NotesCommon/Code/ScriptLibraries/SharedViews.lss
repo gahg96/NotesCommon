@@ -1,0 +1,56 @@
+'++LotusScript Development Environment:2:5:(Options):0:74
+%REM
+    Utitlities for working with views.
+%END REM
+Option Public
+Option Declare
+
+Use "SharedLogging"
+Use "SharedBase"
+
+
+'++LotusScript Development Environment:2:5:(Forward):0:1
+Declare Public Sub UpdateSelectToday()
+Declare Public Sub UpdateSelectTodayForView(view As Variant)
+
+'++LotusScript Development Environment:2:5:(Declarations):0:10
+Private todayDate As NotesDateTime
+
+Private Const TODAY_PREFIX = "today:= "
+
+
+'++LotusScript Development Environment:2:2:UpdateSelectToday:7:8
+%REM
+    Updates a select formula in all views in a current database to use current date.
+    View selection formula have to start with "today:= " prefix, e.g.
+    today:= [2015-01-01];
+    Select @Created >= today
+%END REM
+Public Sub UpdateSelectToday()
+    Set todayDate = New NotesDateTime("Today")
+
+    ForAll v In CurrentDatabase.Views
+        Call UpdateSelectTodayForView(v)
+    End ForAll
+End Sub
+
+
+
+'++LotusScript Development Environment:2:2:UpdateSelectTodayForView:4:8
+%REM
+    Updates a select formula in a view to use current date.
+%END REM
+Public Sub UpdateSelectTodayForView(view As Variant)
+    On Error GoTo err1
+    Dim sel As String
+    sel = view.SelectionFormula
+    If Left(sel, Len(TODAY_PREFIX)) = TODAY_PREFIX Then
+        sel = TODAY_PREFIX & "[" & todayDate.DateOnly & "];" & StrRight(sel, ";")
+        view.SelectionFormula = sel
+        Print("Updating selection formula today date for view " & view.Name)
+    End If
+    Exit Sub
+err1:
+    Call ShowErrorMessage("Error updating view " & view.Name)
+    Exit Sub
+End Sub
