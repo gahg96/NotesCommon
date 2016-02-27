@@ -18,8 +18,9 @@ Declare Public Class ChildDocuments
 Declare Public Sub SaveIfEdited(ANoEdit As Boolean)
 Declare Public Function SelectDocument(AView As String, ATitle As String, APrompt As String, ACategory As String) As NotesDocument
 Declare Public Function GetDateRange(ATitle As String, AStartLabel As String, AEndLabel As String) As NotesDateRange
-Declare Public Function ShowPromptList(ATitle As String, APrompt As String, AValues As Variant) As Variant
 Declare Public Function SelectDocumentFromDB(ADb As NotesDatabase, AView As String, ATitle As String, APrompt As String, ACategory As String) As NotesDocument
+Declare Public Function ShowPromptList(ATitle As String, APrompt As String, AValues As Variant) As Variant
+Declare Public Function GetHighlightedDoc() As NotesDocument
 
 '++LotusScript Development Environment:2:5:(Declarations):0:10
 Public Const F_PROMPT_LIST = "PromptList"
@@ -150,6 +151,18 @@ End Function
 
 
 
+'++LotusScript Development Environment:2:1:SelectDocumentFromDB:3:8
+' Shows dialog for selecting one document from view.
+' Allows to select from different database.
+Public Function SelectDocumentFromDB(ADb As NotesDatabase, AView As String, ATitle As String, APrompt As String, ACategory As String) As NotesDocument
+    Dim dc As NotesDocumentCollection    
+    Set dc = Workspace.PickListCollection(PICKLIST_CUSTOM, False, ADb.Server, ADb.FilePath, AView, ATitle, APrompt, ACategory)
+    Set SelectDocumentFromDB = dc.GetFirstDocument()
+End Function
+
+
+
+
 '++LotusScript Development Environment:2:1:ShowPromptList:2:8
 ' Shows a prompt with dialog list. You can use aliases in values.   
 Public Function ShowPromptList(ATitle As String, APrompt As String, AValues As Variant) As Variant
@@ -166,13 +179,21 @@ End Function
 
 
 
-'++LotusScript Development Environment:2:1:SelectDocumentFromDB:3:8
-' Shows dialog for selecting one document from view.
-' Allows to select from different database.
-Public Function SelectDocumentFromDB(ADb As NotesDatabase, AView As String, ATitle As String, APrompt As String, ACategory As String) As NotesDocument
-    Dim dc As NotesDocumentCollection    
-    Set dc = Workspace.PickListCollection(PICKLIST_CUSTOM, False, ADb.Server, ADb.FilePath, AView, ATitle, APrompt, ACategory)
-    Set SelectDocumentFromDB = dc.GetFirstDocument()
+'++LotusScript Development Environment:2:1:GetHighlightedDoc:4:8
+%REM
+	Returns document highlighted in the view.
+%END REM
+Public Function GetHighlightedDoc() As NotesDocument
+    On Error GoTo err1
+    If Workspace Is Nothing Then
+        Set Workspace = New NotesUIWorkspace()
+    End If
+    Dim selId As String
+    selId = Workspace.CurrentView.CaretNoteId
+    If selId = "" Then Exit Function
+    Set GetHighlightedDoc = CurrentDatabase.GetDocumentById(selId)
+    Exit Function
+err1:
+    Call ShowErrorMessage("")
+    Exit Function
 End Function
-
-
