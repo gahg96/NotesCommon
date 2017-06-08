@@ -1,0 +1,155 @@
+'++LotusScript Development Environment:2:5:(Options):0:74
+%REM
+    This library contains functions for encoding and decoding data in various formats. 
+%END REM
+Option Public
+Option Declare
+
+
+'++LotusScript Development Environment:2:5:(Forward):0:1
+Declare Function ToHex(d As Byte) As String
+Declare Function QuotedPrintableEncode(AString As String) As String
+Declare Function Base64Decode(base64String_o As String) As Variant
+
+'++LotusScript Development Environment:2:5:(Declarations):0:2
+
+'++LotusScript Development Environment:2:1:ToHex:4:8
+%REM
+    Converts number to hex representation.	
+%END REM
+Function ToHex(d As Byte) As String
+    Const alpha = "0123456789ABCDEF"
+    Dim c1 As Byte
+    Dim c2 As Byte
+    
+    c1 = d Mod 16
+    c2 = d \ 16
+    
+    ToHex = Mid$(alpha, c2 + 1, 1) & Mid$(alpha, c1 + 1, 1)
+End Function
+
+
+
+'++LotusScript Development Environment:2:1:QuotedPrintableEncode:4:8
+%REM
+    Encodes string using Quoted Printable.	
+%END REM
+Function QuotedPrintableEncode(AString As String) As String
+    Const ESCAPE_CHAR = "="
+    Dim i As Integer
+    Dim out As String
+    Dim b As Byte
+    Dim c As String
+    
+    For i = 1 To Len(AString)
+        c = Mid$(AString, i, 1)
+        Select Case c
+        Case "ę": out = out & "=EA"
+        Case "ó": out = out & "=F3"
+        Case "ą": out = out & "=B9"
+        Case "ś": out = out & "=9C"
+        Case "ł": out = out & "=B3"
+        Case "ż": out = out & "=BF"
+        Case "ź": out = out & "=9F"
+        Case "ć": out = out & "=E6"
+        Case "ń": out = out & "=F1"
+        Case "Ę": out = out & "=CA"
+        Case "Ó": out = out & "=D3"
+        Case "Ą": out = out & "=A5"
+        Case "Ś": out = out & "=8C"
+        Case "Ł": out = out & "=A3"
+        Case "Ż": out = out & "=AF"
+        Case "Ź": out = out & "=8F"
+        Case "Ć": out = out & "=C6"
+        Case "Ń": out = out & "=D1"
+        Case |„|: out = out & "&bdquo;"
+        Case Else:
+            b = Asc(c)
+            Select Case b
+            Case 9, 32, 33 To 60, 62 To 126:
+                out = out & c
+            Case Else:
+                out = out & ESCAPE_CHAR & ToHex(b)
+        End Select
+    End Select
+    Next
+    QuotedPrintableEncode = out
+End Function
+
+
+
+'++LotusScript Development Environment:2:1:Base64Decode:4:8
+%REM
+	Encodes string using Base64.
+%END REM
+Function Base64Decode(base64String_o As String) As Variant
+    Const Base64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+    Dim dataLength As Integer
+    Dim sOut As String
+    Dim groupBegin As Integer
+    Dim numDataBytes As Integer
+    Dim CharCounter As Integer
+    Dim thisChar As String
+    Dim thisData As Integer
+    Dim nGroup As Variant
+    Dim pOut As String
+    Dim Base64String As String
+    Dim i As Long
+    Dim s As String
+    Dim eval As Variant 
+      'remove white spaces, If any
+    base64String = base64String_o
+    base64String = Replace(base64String, Chr$(13), "")
+    base64String = Replace(base64String, Chr$(10), "")
+    base64String = Replace(base64String, Chr$(9), "")
+    base64String = Replace(base64String, " ", "")
+    
+      'The source must consists from groups with Len of 4 chars
+    dataLength = Len(base64String)
+    If dataLength Mod 4 <> 0 Then
+        Print "Bad string length must be a multiple of 4"
+        Exit Function
+    End If
+    
+    ' Now decode each group:
+    For groupBegin = 1 To dataLength Step 4
+        ' Each data group encodes up To 3 actual bytes.
+        numDataBytes = 3
+        nGroup = 0      
+        For CharCounter = 0 To 3
+            ' Convert each character into 6 bits of data, And add it To
+            ' an integer For temporary storage.  If a character is a '=', there
+            ' is one fewer data byte.  (There can only be a maximum of 2 '=' In
+            ' the whole string.)
+            thisChar = Mid(base64String, groupBegin + CharCounter, 1)
+            If thisChar = "=" Then
+                numDataBytes = numDataBytes - 1
+                thisData = 0
+            Else
+                thisData = InStr(Base64, thisChar) - 1
+            End If
+            If thisData = -1 Then
+                MessageBox " Bad character In Base64 string."
+                Exit Function
+            End If  
+            nGroup = 64 * nGroup + thisData
+        Next        
+        'Hex splits the long To 6 groups with 4 bits
+        nGroup = Hex(nGroup)
+            'Add leading zeros
+        nGroup = String(6 - Len(nGroup), "0") & nGroup
+        'Convert the 3 byte hex integer (6 chars) To 3 characters
+        pOut = Chr(CByte("&H" & Mid(nGroup, 1, 2))) + _
+        Chr(CByte("&H" & Mid(nGroup, 3, 2))) + _
+        Chr(CByte("&H" & Mid(nGroup, 5, 2)))
+        'add numDataBytes characters To out string
+        sOut = sOut & Left(pOut, numDataBytes)
+    Next    
+    Dim ret() As Byte
+    ReDim ret(Len(sOut))
+    For i = 1 To Len(sOut)
+        ret(i-1) = Asc(Mid$(sOut, i, 1))
+    Next
+    Base64Decode = ret
+End Function
+
