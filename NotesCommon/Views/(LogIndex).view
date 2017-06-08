@@ -1,55 +1,34 @@
-<?xml version='1.0' encoding='utf-8'?>
-<note class='view' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.2'
- replicaid='C1257E57004171E2'>
-<noteinfo noteid='176' unid='BF2CBCEFB16B8578C1257B2800344188' sequence='8'>
-<created><datetime>20130308T103046,48+01</datetime></created>
-<modified><datetime dst='true'>20150601T142316,06+02</datetime></modified>
-<revised><datetime dst='true'>20150601T142316,05+02</datetime></revised>
-<lastaccessed><datetime dst='true'>20150601T142316,05+02</datetime></lastaccessed>
-<addedtofile><datetime dst='true'>20150601T135450,79+02</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Mariusz Jakubowski/O=SEJM/C=PL</name><name>CN=Virt Administrator/O=virt</name></updatedby>
-<wassignedby><name>CN=Virt Administrator/O=virt</name></wassignedby>
-<item name='$FormulaClass' sign='true'><text>1</text></item>
-<item name='$TITLE' sign='true'><text>(LogIndex)|LogIndex</text></item>
-<item name='$Index' sign='true'><text/></item>
-<item name='$Formula' summary='true' sign='true'><formula compiled='true'>
-wgACAEIAAgAkNAUABwBJc0Vycm9yAAEAAQAxAAoCrwAiABAAAAAAAAAAAMBiQK4AEgAAAAAAAAAA
-AAAArgAEALUDAwACACIAAgAkNgIABgAAAAAAAAAFAAgAVXNlck5hbWW0AgMABQAyAC4ABgACAAkA
-BAACAAkABAAkNEFnZW50TmFtZURhdGEkNiRDb25mbGljdCRSRUYEAAQAAAAcAAUABABGb3JtAQAH
-AExvZ0Zvcm0ACgIDAAcACgAEAAlMMVM=
-</formula></item>
-<item name='$Collation' summary='true'>
-<rawitemdata type='2'>
-IQACAABEAGYAAAAJAIFmAAkABABBZ2VudE5hbWVEYXRh
-</rawitemdata></item>
-<item name='$Collation1' summary='true'>
-<rawitemdata type='2'>
-FgABAABEAGYAAAAJAEFnZW50TmFtZQ==
-</rawitemdata></item>
-<item name='$Collation2' summary='true'>
-<rawitemdata type='2'>
-EQABAABEgGYAAAAEAERhdGE=
-</rawitemdata></item>
-<item name='$Collation3' summary='true'>
-<rawitemdata type='2'>
-DwABAABEgGYAAAACACQ2
-</rawitemdata></item>
-<item name='$ViewFormat' summary='true' sign='true'>
-<rawitemdata type='5'>
-AQAEAAcACAAAAFZDQAACAAAAUAAAABAAAQAACoAAAAAAAAAAAAICAAAAVkMBAQkABQAAAAAAoQAB
-AAAKgAAAAAAAAAAAAgIAAABWQwUBBAAEAAAAAABaAAEAAAqAAAAAAAAAAQACAgAAAFZDAAECAAsA
-LgAAAKAAAQAACoAAAAAAAAAAAAICAAAAJDRQAAIAQgACACQ0BQAHAElzRXJyb3IAAQABADEACgKv
-ACIAEAAAAAAAAAAAwGJArgASAAAAAAAAAAAAAACuAAQAtQMDAAcADAAFAAk2UzhTAEFnZW50TmFt
-ZUFnZW50RGF0YURhdGEkNlUGvnl0a293bmlrLgACACIAAgAkNgIABgAAAAAAAAAFAAgAVXNlck5h
-bWW0AgMABwAKAAMACTRTACYAAQAAAAEBAAkBAAAKAQEOCgAAAQCtKwEAAQABAAAAAAAAAAAAV0MB
-AAAJAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA//8AAAAAAAAAAAAAAAAAAFdDAQAACQAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAABXQwEAAAkAAAAAAAAAAAAAAAAAAAAAAADE
-AAAAAAD//wAAAAAAAAAAAAAAAAAAV0MBAAAJAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA//8AAAAA
-AAAAAAAAAAAAAEIAAAAAAAEA////AAUA////AAEAAAAAAAAAAAAAAAAAAQD///8AAQD///8AAAAB
-AAAAAAABAAAAAAABAAAAAAAAAAgAAAAAAAEAWEMATIABAAAAAAABAgICAQEBAQcEAgAAAAAAAAAA
-LS0gOllDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
-</rawitemdata></item>
-<item name='$Comment' sign='true'><text>widok wyszukiwania dokumentow do logowania komunikatów</text></item>
-<item name='$Flags'><text>Yw</text></item>
-<item name='$DesignerVersion'><text>8.5.3</text></item></note>
-
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://www.lotus.com/dxl" name="(LogIndex)" alias="LogIndex" hide="web" showinmenu="false" publicaccess="false" comment="widok wyszukiwania dokumentow do logowania komunikatów" unreadmarks="none" onopengoto="lastopened" onrefresh="displayindicator" headers="beveled" opencollapsed="false" showresponsehierarchy="true" showmargin="true" shrinkrows="false" extendlastcolumn="false" showhierarchies="false" unreadcolor="black" rowlinecount="1" headerlinecount="1" rowspacing="1" bgcolor="white" totalscolor="black" headerbgcolor="white" boldunreadrows="false" evaluateactions="false" allownewdocuments="false" allowcustomizations="true" hidemarginborder="false" marginwidth="0px" marginbgcolor="white" uniquekeys="false">
+  <code event="selection">
+    <formula>SELECT Form="LogForm"</formula>
+  </code>
+  <column hidedetailrows="false" itemname="$4" width="2" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showasicons="true">
+    <columnheader align="center">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>@If(IsError="1"; 150; 0)</formula>
+    </code>
+  </column>
+  <column sort="ascending" resort="ascending" hidedetailrows="false" itemname="AgentName" width="20.1250" resizable="true" separatemultiplevalues="false" sortnoaccent="true" sortnocase="true" showaslinks="false">
+    <columnheader align="center" title="Agent">
+      <font size="9pt"/>
+    </columnheader>
+  </column>
+  <column sort="descending" resort="ascending" hidedetailrows="false" itemname="Data" width="11.2500" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false">
+    <columnheader align="center" title="Data">
+      <font size="9pt"/>
+    </columnheader>
+    <datetimeformat show="datetime" date="yearmonthday" fourdigityearfor21stcentury="true" time="hourminute" zone="never" dateformat="yearmonthdayweekday" dayformat="twodigitday" monthformat="twodigitmonth" yearformat="fourdigityear" weekdayformat="shortname" dateseparator1="-" dateseparator2="-" dateseparator3=" " timeseparator=":" timeformat24="true" preference="usersetting"/>
+    <numberformat format="general" punctuated="false" parens="false" percent="false" bytes="false"/>
+  </column>
+  <column resort="ascending" hidedetailrows="false" itemname="$6" width="20" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false">
+    <columnheader align="center" title="Użytkownik">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>@Name([CN]; UserName)</formula>
+    </code>
+  </column>
+</view>

@@ -1,107 +1,144 @@
-<?xml version='1.0' encoding='utf-8'?>
-<note class='form' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.2'
- replicaid='C1257E57004171E2'>
-<noteinfo noteid='186' unid='5FC56B71AA1BD4CCC1257B280034582A' sequence='21'>
-<created><datetime>20130308T103144,42+01</datetime></created>
-<modified><datetime dst='true'>20150623T095150,76+02</datetime></modified>
-<revised><datetime dst='true'>20150623T095150,75+02</datetime></revised>
-<lastaccessed><datetime dst='true'>20150623T095150,75+02</datetime></lastaccessed>
-<addedtofile><datetime dst='true'>20150601T135450,87+02</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Virt Administrator/O=virt</name></updatedby>
-<wassignedby><name>CN=Virt Administrator/O=virt</name></wassignedby>
-<item name='OriginalModTime' sign='true'><datetime dst='true'>20080401T145512,48+02</datetime></item>
-<item name='$Fonts'>
-<rawitemdata type='1'>
-i/8oAAEABSZBcmlhbCBDRQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
-</rawitemdata></item>
-<item name='$BackgroundR5'>
-<rawitemdata type='1'>
-3QYBAJkAmQAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAH0AHAAAAAIAXABcAwAAAAAAAAAAAAAA
-AAAAAAD2/zYAAAAAAAMAEwAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAYmFja2dyb3VuZF9ncmV5MS5q
-cGfeBgEAmQA=
-</rawitemdata></item>
-<item name='$HTMLCode' sign='true'>
-<rawitemdata type='1'>
-X/8QAAIADwAHAAAAAAAAAA==
-</rawitemdata></item>
-<item name='$TITLE'><text>MenuNotes</text></item>
-<item name='$Comment' sign='true'><text>left menu</text></item>
-<item name='$Info' sign='true'>
-<rawitemdata type='1'>
-hhgBAIAAAAAAAAAALwABAPj4+AAAAAAA
-</rawitemdata></item>
-<item name='$WindowTitle' sign='true'><formula>@DbTitle</formula></item>
-<item name='$Flags'><text>C34WQw</text></item>
-<item name='$DesignerVersion'><text>8.5.3</text></item>
-<item name='$$Script_O' sign='true'>
-<rawitemdata type='14'>
-AQAAAkxTT0IDABQIZW4AAAQAAAADAAAAAAAEAIgAAAAAAAAAAAAAAAAAAAAkAP//AAA4AP////9U
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAEABABMb3R1cyBQcm9kdWN0AAAAVjAuMAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAwAAAAAAAAAEAAAAiAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA
-AAAAAABXMzJJNAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAwCMAAAAAAAYAAgAKgA0AEYARQBGADMARQA4AAAAAABsAAMATgBFAFcAAACAAAYARABFAEwA
-RQBUAEUAAAAAAP//CgBJAE4ASQBUAEkAQQBMAEkAWgBFAAAAAAD//wkAVABFAFIATQBJAE4AQQBU
-AEUAAAD//wYATwBCAEoARQBDAFQAAAAAAP//AAAAAAAABQAIAAAAAAAx9cbrBAAHAAAAAAAdAAAC
-AAAACgAAAA==
-</rawitemdata></item>
-<item name='$$ScriptName' summary='false' sign='true'><text>MenuNotes</text></item>
-<item name='$Body' sign='true'>
-<rawitemdata type='1'>
-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
-APwDDAAAAAAAAQAAAAQAAACDBAYAhf8IAAEAAAo=
-</rawitemdata></item>
-<item name='$V5ACTIONS' sign='true'>
-<rawitemdata type='1'>
-vRwRAAAAAQABAAAAAQAAAAAAAAAAAAAACAACAHn/bAABAOzp2AABAAAAAAAJAAAAAAABAOzp2AAA
-AB8AAAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPz/OgAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAEAAAAAAAAAAAAAAAAAAAC+/yYAAAAFAAAAnQEAAAsAAAAAAAAAQ2F0ZWdvcmlfemUA
-AQBOfL7/KAAAAAUAAACdAQAADgAAAAAAAABfRWRpdCBEb2N1bWVudAIAAgq+/ygAAAAFAAAAnQEA
-AA4AAAAAAAAAX1NlbmQgRG9jdW1lbnQDAAMKvv8iAAAABQAAAJ0BAAAIAAAAAAAAAF9Gb3J3YXJk
-BAAECr7/LAAAAAUAAACdAQAAEgAAAAAAAABfTW92ZSBUbyBGb2xkZXIuLi4FAD18vv8uAAAABQAA
-AJ0BAAATAAAAAAAAAF9SZW1vdmUgRnJvbSBGb2xkZXIABgA+fA==
-</rawitemdata></item>
-<item name='$ACTIONS' sign='true'>
-<rawitemdata type='1'>
-vRwRAAAAAQABAAAAAQAAAAAAAAAAAAAACAACAL7/JgAAAAUAAACdAQAACwAAAAAAAABDYXRlZ29y
-aV96ZQABAE58vv8oAAAABQAAAJ0BAAAOAAAAAAAAAF9FZGl0IERvY3VtZW50AgACCr7/KAAAAAUA
-AACdAQAADgAAAAAAAABfU2VuZCBEb2N1bWVudAMAAwq+/yIAAAAFAAAAnQEAAAgAAAAAAAAAX0Zv
-cndhcmQEAAQKvv8sAAAABQAAAJ0BAAASAAAAAAAAAF9Nb3ZlIFRvIEZvbGRlci4uLgUAPXy+/y4A
-AAAFAAAAnQEAABMAAAAAAAAAX1JlbW92ZSBGcm9tIEZvbGRlcgAGAD58
-</rawitemdata></item></note>
-
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns="http://www.lotus.com/dxl" name="MenuNotes" hide="web" publicaccess="false" comment="left menu" bgcolor="#f8f8f8">
+  <code event="windowtitle">
+    <formula>@DbTitle</formula>
+  </code>
+  <actionbar bgcolor="#ece9d8" bordercolor="black">
+    <actionbuttonstyle bgcolor="#ece9d8"/>
+    <font color="system"/>
+    <border style="solid" width="0px 0px 1px"/>
+    <action title="Categori_ze" showinbar="false" systemcommand="categorize"/>
+    <action title="_Edit Document" showinbar="false" systemcommand="edit"/>
+    <action title="_Send Document" showinbar="false" systemcommand="send"/>
+    <action title="_Forward" showinbar="false" systemcommand="forward"/>
+    <action title="_Move To Folder..." showinbar="false" systemcommand="movetofolder"/>
+    <action title="_Remove From Folder" showinbar="false" systemcommand="removefromfolder"/>
+  </actionbar>
+  <background>
+    <imageref name="background_grey1.jpg"/>
+  </background>
+  <body>
+    <richtext>
+      <pardef id="1" hide="notes web mobile"/>
+      <par def="1"/>
+      <table widthtype="fitwindow" cellbordercolor="#2e5785" leftmargin="0.7479in" refwidth="12.5750in">
+        <tablecolumn width="100%"/>
+        <tablerow>
+          <tablecell borderwidth="0px 0px 2px" bgcolor="#f8f8f8">
+            <pardef id="3" align="center" keepwithnext="true" keeptogether="true"/>
+            <par def="3">
+              <picture width="170px" height="74px">
+                <imageref name="logo.png"/>
+              </picture>
+              <run>
+                <font size="12pt" style="bold" color="white"/>
+              </run>
+            </par>
+          </tablecell>
+        </tablerow>
+        <tablerow>
+          <tablecell borderwidth="0px 0px 1px" bgcolor="#f8f8f8">
+            <cellbackground repeat="hrepeat">
+              <imageref name="top_bg_2.jpg"/>
+            </cellbackground>
+            <par def="3">
+              <run>
+                <font size="6pt" color="white"/>
+              </run>
+            </par>
+            <par def="3">
+              <run>
+                <font size="12pt" style="bold" color="#ae0808"/>
+              </run>
+            </par>
+            <par def="3">
+              <run>
+                <font size="12pt" style="bold" color="#ae0808"/>
+              </run>
+              <run>
+                <font size="14pt" style="bold" color="#ae0808"/>
+                <computedtext>
+                  <code event="value">
+                    <formula>@DbTitle</formula>
+                  </code>
+                </computedtext>
+              </run>
+              <run>
+                <font size="12pt" style="bold" color="#ae0808"/>
+              </run>
+            </par>
+            <par def="3">
+              <run>
+                <font color="white"/>
+              </run>
+            </par>
+            <par def="3">
+              <run>
+                <font size="3pt" color="#2f2f2f"/>
+              </run>
+            </par>
+          </tablecell>
+        </tablerow>
+        <tablerow>
+          <tablecell borderwidth="1px 0px 0px">
+            <pardef id="4" keepwithnext="true" keeptogether="true"/>
+            <par def="4">
+              <run>
+                <font size="8pt"/>
+              </run>
+            </par>
+          </tablecell>
+        </tablerow>
+        <tablerow>
+          <tablecell borderwidth="0px">
+            <cellbackground repeat="hrepeat"/>
+            <pardef id="5" keepwithnext="true" keeptogether="true"/>
+            <par def="5">
+              <run>
+                <font size="8pt"/>
+              </run>
+            </par>
+            <par def="5">
+              <run>
+                <font size="8pt"/>
+              </run>
+            </par>
+            <par def="5">
+              <embeddedoutline outline="main" widthtype="fitwindow" heighttype="fitcontent" height="1.1042in" expand="first">
+                <title>
+                  <layout labelalign="topleft" labelhoffset="0" labelvoffset="0"/>
+                </title>
+                <toplevel normalcolor="#2e5785" selectedcolor="#ae0808" mouseovercolor="#ae0808">
+                  <font style="bold"/>
+                  <eoutlinebackground repeat="hrepeat"/>
+                  <layout labelalign="topleft" entryvoffset="0.0785in" imagealign="topleft" labelhoffset="0.2000in" labelvoffset="0"/>
+                </toplevel>
+                <sublevel normalcolor="#2e5785" selectedcolor="#ae0808" mouseovercolor="#ae0808">
+                  <layout labelalign="topleft" entryhoffset="0.2785in" imagealign="topleft" labelhoffset="0.2000in" labelvoffset="0"/>
+                </sublevel>
+              </embeddedoutline>
+              <run>
+                <font size="8pt"/>
+              </run>
+            </par>
+            <par def="5">
+              <run>
+                <font size="8pt"/>
+              </run>
+            </par>
+            <par def="5">
+              <run>
+                <font size="8pt"/>
+              </run>
+            </par>
+          </tablecell>
+        </tablerow>
+      </table>
+      <pardef id="6" leftmargin="0.7083in"/>
+      <par def="6"/>
+    </richtext>
+  </body>
+  <item name="OriginalModTime" sign="true">
+    <datetime dst="true">20080401T145512,48+02</datetime>
+  </item>
+</page>

@@ -1,124 +1,303 @@
-<?xml version='1.0' encoding='utf-8'?>
-<note default='true' class='view' xmlns='http://www.lotus.com/dxl' version='9.0'
- maintenanceversion='1.2' replicaid='C1257E57004171E2'>
-<noteinfo noteid='23e' unid='1378B770283772CDC1257BBB00407E96' sequence='58'>
-<created><datetime dst='true'>20130802T134427,10+02</datetime></created>
-<modified><datetime dst='true'>20150623T095131,34+02</datetime></modified>
-<revised><datetime dst='true'>20150623T095131,33+02</datetime></revised>
-<lastaccessed><datetime dst='true'>20150623T095131,33+02</datetime></lastaccessed>
-<addedtofile><datetime dst='true'>20150601T135451,69+02</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Virt Administrator/O=virt</name></updatedby>
-<wassignedby><name>CN=Virt Administrator/O=virt</name></wassignedby>
-<item name='$FormulaClass' sign='true'><text>1</text></item>
-<item name='$TITLE' sign='true'><text>UI\Documents|ui_documents</text></item>
-<item name='$Index' sign='true'><text/></item>
-<item name='$Formula' summary='true' sign='true'><formula compiled='true'>
-BgEBADwAEgB0ZXh0Y29sb3IA8t84ACp8JQAAAAAAAAAA4G9AAAAAAAAAAOBvQB8CAAAAAAAAAAAA
-AB8CAwABADoAEABiZ2NvbG9yAPPfOAAqfCUAAAAAAAAAAAAAAAAAAAAAAAAAAAAfAgAAAAAAAADg
-b0AfAgMAAgA4AAMAJDI5AAUAEABiZ2NvbG9yAPPfOAAqfCUABQASAHRleHRjb2xvcgDy3zgAKnwl
-AB8CAwAFACwAKAAFAAUAAwAFAAkABABUaXRsZSQyOVRpdGxlJENvbmZsaWN0JFJFRgQABAAAABwA
-BQAEAEZvcm0BAAgARG9jdW1lbnQKAgMABwAKAAQACUwxUw==
-</formula></item>
-<item name='$Collation' summary='true'>
-<rawitemdata type='2'>
-EgABAABEgGYAAAAFAFRpdGxl
-</rawitemdata></item>
-<item name='$Comment' sign='true'><text>sample view</text></item>
-<item name='$Flags'><text>Ydw</text></item>
-<item name='$DesignerVersion'><text>8.5.3</text></item>
-<item name='$ViewFormat' sign='true'>
-<rawitemdata type='5'>
-AQAkAB8ACAAAAFZDAAACAAEACgAKACgAAQAACoAAAAAAAAAAAAICAAAAVkMBAAUABgAAAAAA0gAB
-AAAKgAAAAAAAAAAAAgIAAABWQwgAAwASANAAAABQAAEAAAoAAAAAAAAAAAACAgAAAFZDAAAFABUA
-AAAAAHUAAQAACoAAAAAAAAAAAAICAAAAVkMIAAMAFABsADYAUAABAAAKAAAAAAAAAAAAAgIAAABW
-Q0AAAAABABYADgAIAAEAAAqAAAAAAAAAAAACAgAAAFZDQAACAAEAFgAOAAgAAQAACoAAAAAAAAAA
-AAICAAAAVkNAAAIAAQAWAA4ACAABAAAKgAAAAAAAAAAAAgIAAABWQ0AAAgACABYADgAIAAEAAAqA
-AAAAAAAAAAACAgAAAFZDQAACAAIAFgAOAAgAAQAACoAAAAAAAAAAAAICAAAAVkNAAAIAAgAWAA4A
-CAABAAAKgAAAAAAAAAAAAgIAAABWQ0AAAgACABYADgAIAAEAAAqAAAAAAAAAAAACAgAAAFZDQAAD
-AAIAGAAOAAgAAQAACoAAAAAAAAAAAAICAAAAVkNAAAMAAgAYAA4ACAABAAAKgAAAAAAAAAAAAgIA
-AABWQ0AAAwACABgADgAIAAEAAAqAAAAAAAAAAAACAgAAAFZDQAAAAAIAFgAOAAgAAQAACoAAAAAA
-AAAAAAICAAAAVkNAAAMAAgAYAA4ACAABAAAKgAAAAAAAAAAAAgIAAABWQ0AAAwACABgADgAIAAEA
-AAqAAAAAAAAAAAACAgAAAFZDQAAAAAIAFgAOAAgAAQAACoAAAAAAAAAAAAICAAAAVkNAAAMAAgAY
-AA4ACAABAAAKgAAAAAAAAAAAAgIAAABWQ0AAAwACABgADgAIAAEAAAqAAAAAAAAAAAACAgAAAFZD
-QAADAAIAGAAOAAgAAQAACoAAAAAAAAAAAAICAAAAVkNAAAMAAwAYAA4AEAABAAAKgAAAAAAAAAAA
-AgIAAABWQ0AAAAADABgADgAQAAEAAAqAAAAAAAAAAAACAgAAAFZDQAADAAMAGAAOABAAAQAACoAA
-AAAAAAAAAAICAAAAVkNAAAMAAwAYAA4AEAABAAAKgAAAAAAAAAAAAgIAAABWQ0AAAwADABgADgAQ
-AAEAAAqAAAAAAAAAAAACAgAAAFZDQAAAAAMAGAAOABAAAQAACoAAAAAAAAAAAAICAAAAVkNAAAMA
-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
-AAAAAAAAAABpQAMAAQMBAAAAAAAAAAAAaUAkMjYyMDEYAAIAFgADACQyNgAAAAAAAAAAIGlAAwAB
-AwEAAAAAAAAAACBpQCQyNzIwMhgAAgAWAAMAJDI3AAAAAAAAAABAaUADAAEDAQAAAAAAAAAAQGlA
-JDI4MjAzGAACABYAAwAkMjgAAAAAAAAAAGBpQAMAAQMBAAAAAAAAAABgaUAkMjMyMDQYAAIAFgAD
-ACQyMwAAAAAAAAAAgGlAAwABAwEAAAAAAAAAAIBpQCYAAQAAAAEBAAkBAAAKAQEOCgAAAQCtKwEA
-AQABAAAAAAAAAAAAV0MBAAAJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAAAAAAAAAAAAAAAA
-AFdDAQAACQAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAP//AAAAAAAAAAAAAAAAAABXQwEAAAkAAAAA
-AAAAAAAAAAAAAAAAAAAkAAAAAAD//wAAAAAAAAAAAAAAAAAAV0MBAAAJAAAAAAAAAAAAAAAAAAAA
-AAAABAAAAAAA//8AAAAAAAAAAAAAAAAAAFdDAQAACQAAAAAAAAAAAAAAAAAAAAAAACQAAAAAAP//
-AAAAAAAAAAAAAAAAAABXQwEAAAkAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAD//wAAAAAAAAAAAAAA
-AAAAV0MBAAAJAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA//8AAAAAAAAAAAAAAAAAAFdDAQAACQAA
-AAAAAAAAAAAAAAAAAAAAAAQAAAAAAP//AAAAAAAAAAAAAAAAAABXQwEAAAkAAAAAAAAAAAAAAAAA
-AAAAAAAEAAAAAAD//wAAAAAAAAAAAAAAAAAAV0MBAAAJAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA
-//8AAAAAAAAAAAAAAAAAAFdDAQAACQAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAP//AAAAAAAAAAAA
-AAAAAABXQwEAAAkAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAD//wAAAAAAAAAAAAAAAAAAV0MBAAAJ
-AAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA//8AAAAAAAAAAAAAAAAAAFdDAQAACQAAAAAAAAAAAAAA
-AAAAAAAAAAQAAAAAAP//AAAAAAAAAAAAAAAAAABXQwEAAAkAAAAAAAAAAAAAAAAAAAAAAAAEAAAA
-AAD//wAAAAAAAAAAAAAAAAAAV0MBAAAJAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA//8AAAAAAAAA
-AAAAAAAAAFdDAQAACQAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAP//AAAAAAAAAAAAAAAAAABXQwEA
-AAkAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAD//wAAAAAAAAAAAAAAAAAAV0MBAAAJAAAAAAAAAAAA
-AAAAAAAAAAAABAAAAAAA//8AAAAAAAAAAAAAAAAAAFdDAQAACQAAAAAAAAAAAAAAAAAAAAAAAAQA
-AAAAAP//AAAAAAAAAAAAAAAAAABXQwEAAAkAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAD//wAAAAAA
-AAAAAAAAAAAAV0MBAAAJAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA//8AAAAAAAAAAAAAAAAAAFdD
-AQAACQAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAP//AAAAAAAAAAAAAAAAAABXQwEAAAkAAAAAAAAA
-AAAAAAAAAAAAAAAEAAAAAAD//wAAAAAAAAAAAAAAAAAAV0MBAAAJAAAAAAAAAAAAAAAAAAAAAAAA
-BAAAAAAA//8AAAAAAAAAAAAAAAAAAFdDAQAACQAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAP//AAAA
-AAAAAAAAAAAAAABXQwEAAAkAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAD//wAAAAAAAAAAAAAAAAAA
-V0MBAAAJAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA//8AAAAAAAAAAAAAAAAAAFdDAQAACQAAAAAA
-AAAAAAAAAAAAAAAAAAQAAAAAAP//AAAAAAAAAAAAAAAAAABXQwEAAAkAAAAAAAAAAAAAAAAAAAAA
-AAAEAAAAAAD//wAAAAAAAAAAAAAAAAAAV0MBAAAJAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA//8A
-AAAAAAAAAAAAAAAAAFdDAQAACQAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAP//AAAAAAAAAAAAAAAA
-AABXQwEAAAkAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAD//wAAAAAAAAAAAAAAAAAAV0MBAAAJAAAA
-AAAAAAAAAAAAAAAAAAAABAAAAAAA//8AAAAAAAAAAAAAAAAAAFdDAQAACQAAAAAAAAAAAAAAAAAA
-AAAAAAQAAAAAAP//AAAAAAAAAAAAAAAAAABXQwEAAAkAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAD/
-/wAAAAAAAAAAAAAAAAAAQgAAAAAAAQD///8ABQD///8AAQAAAAAAAAAAAAAAAAABAP///wABAP//
-/wAAAAEAAAAAAAEAAAAAAAEAAAAAAAAACAAAAAAAAQA=
-</rawitemdata></item>
-<item name='$V5ACTIONS' sign='true'>
-<rawitemdata type='1'>
-vRwBAAAAAQABAAAAJQAAAAAAAAABAQAJCAACAHn/bAABAP///wABAAAAAAABAAAAAAABAO/v7wAA
-AB8AAQAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAHH/LgAAAAAAAwATAAwAAAAAAAAAAAAAAAAAAAAAAAAAAABi
-Z190b3BfMi5wbmf8/zoAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAMDA
-wAAAAAAAAAAAAAAAvv9OAAAAAQAAAJ8BAAANAAAAAAAAAE5vd3kgZG9rdW1lbnQFKgAAAB4AAgDo
-AwAAAAAAAAEACABEb2N1bWVudO0CAwAHAAoAAwAJNFMA
-</rawitemdata></item></note>
-
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://www.lotus.com/dxl" name="UI\Documents" alias="ui_documents" hide="web" showinmenu="false" defaultdesign="true" publicaccess="false" default="true" comment="sample view" unreadmarks="none" onopengoto="lastopened" onrefresh="displayindicator" headers="beveled" opencollapsed="false" showresponsehierarchy="true" showmargin="true" shrinkrows="false" extendlastcolumn="false" showhierarchies="false" unreadcolor="black" rowlinecount="1" headerlinecount="1" rowspacing="1" bgcolor="white" totalscolor="black" headerbgcolor="white" boldunreadrows="false" evaluateactions="false" allownewdocuments="false" allowcustomizations="true" hidemarginborder="false" marginwidth="0px" marginbgcolor="white" uniquekeys="false">
+  <code event="selection">
+    <formula>SELECT Form="Document"</formula>
+  </code>
+  <actionbar bgcolor="white" bordercolor="black">
+    <actionbarstyle repeat="once">
+      <imageref name="bg_top_2.png"/>
+    </actionbarstyle>
+    <actionbuttonstyle bgcolor="none"/>
+    <font size="9pt" style="bold"/>
+    <border style="solid" width="0px 0px 1px" color="silver"/>
+    <action title="Nowy dokument">
+      <code event="click">
+        <formula>@Command([Compose]; "Document")</formula>
+      </code>
+    </action>
+  </actionbar>
+  <column hidedetailrows="false" itemname="$0" width="5" resizable="true" separatemultiplevalues="false" sortnoaccent="true" sortnocase="true" showaslinks="false">
+    <columnheader align="center" title="#">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>@DocNumber</formula>
+    </code>
+  </column>
+  <column sort="ascending" hidedetailrows="false" itemname="Title" width="26.2500" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false">
+    <columnheader align="center" title="Tytuł">
+      <font size="9pt"/>
+    </columnheader>
+  </column>
+  <column hidedetailrows="false" itemname="$29" width="10" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showascolor="true" hidden="true">
+    <columnheader title="ustawienie kolorow">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>textcolor:= 255:255:0;
+bgcolor:= 0:0:255;
+bgcolor:textcolor</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" itemname="Title" width="14.6250" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false">
+    <columnheader align="center" title="kolor czcionki i tła">
+      <font size="9pt"/>
+    </columnheader>
+  </column>
+  <column hidedetailrows="false" itemname="$30" width="10" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showascolor="true" hidden="true">
+    <columnheader title="przywrocenie kolorow">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>-1:-1:-1:-1:-1:-1</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" width="1" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showasicons="true">
+    <columnheader align="center" title="3">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>3</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" itemname="$4" width="1" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showasicons="true">
+    <columnheader align="center" title="4">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>4</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" itemname="$5" width="1" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showasicons="true">
+    <columnheader align="center" title="5">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>5</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" itemname="$6" width="1" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showasicons="true">
+    <columnheader align="center" title="11">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>11</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" itemname="$7" width="1" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showasicons="true">
+    <columnheader align="center" title="12">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>12</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" itemname="$8" width="1" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showasicons="true">
+    <columnheader align="center" title="29">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>29</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" itemname="$9" width="1" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showasicons="true">
+    <columnheader align="center" title="37">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>37</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" itemname="$10" width="1" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showasicons="true">
+    <columnheader align="center" title="38">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>38</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" itemname="$11" width="1" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showasicons="true">
+    <columnheader align="center" title="58">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>58</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" itemname="$12" width="1" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showasicons="true">
+    <columnheader align="center" title="61">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>61</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" width="1" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showasicons="true">
+    <columnheader align="center" title="79">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>79</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" itemname="$13" width="1" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showasicons="true">
+    <columnheader align="center" title="80">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>80</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" itemname="$14" width="1" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showasicons="true">
+    <columnheader align="center" title="81">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>81</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" width="1" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showasicons="true">
+    <columnheader align="center" title="82">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>82</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" itemname="$15" width="1" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showasicons="true">
+    <columnheader align="center" title="83">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>83</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" itemname="$16" width="1" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showasicons="true">
+    <columnheader align="center" title="84">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>84</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" itemname="$17" width="1" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showasicons="true">
+    <columnheader align="center" title="92">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>92</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" itemname="$18" width="2" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showasicons="true">
+    <columnheader align="center" title="114">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>114</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" width="2" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showasicons="true">
+    <columnheader align="center" title="115">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>115</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" itemname="$20" width="2" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showasicons="true">
+    <columnheader align="center" title="125">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>125</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" itemname="$21" width="2" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showasicons="true">
+    <columnheader align="center" title="130">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>130</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" itemname="$22" width="2" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showasicons="true">
+    <columnheader align="center" title="132">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>132</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" width="2" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showasicons="true">
+    <columnheader align="center" title="150">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>150</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" itemname="$19" width="2" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showasicons="true">
+    <columnheader align="center" title="151">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>151</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" width="2" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showasicons="true">
+    <columnheader align="center" title="155">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>155</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" itemname="$24" width="2" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showasicons="true">
+    <columnheader align="center" title="158">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>158</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" itemname="$25" width="2" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showasicons="true">
+    <columnheader align="center" title="200">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>200</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" itemname="$26" width="2" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showasicons="true">
+    <columnheader align="center" title="201">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>201</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" itemname="$27" width="2" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showasicons="true">
+    <columnheader align="center" title="202">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>202</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" itemname="$28" width="2" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showasicons="true">
+    <columnheader align="center" title="203">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>203</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" itemname="$23" width="2" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false" showasicons="true">
+    <columnheader align="center" title="204">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>204</formula>
+    </code>
+  </column>
+</view>

@@ -1,15 +1,15 @@
 <?xml version='1.0' encoding='utf-8'?>
 <note default='true' class='icon' xmlns='http://www.lotus.com/dxl' version='9.0'
- maintenanceversion='1.2' replicaid='C1257E57004171E2'>
-<noteinfo noteid='11a' unid='EA2F431B74C9B71CC1257B2800337432' sequence='20'>
-<created><datetime>20130308T102200,82+01</datetime></created>
-<modified><datetime dst='true'>20150601T135854,33+02</datetime></modified>
-<revised><datetime dst='true'>20150601T135854,32+02</datetime></revised>
-<lastaccessed><datetime dst='true'>20150601T135854,32+02</datetime></lastaccessed>
-<addedtofile><datetime dst='true'>20150601T135450,35+02</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Mariusz Jakubowski/O=SEJM/C=PL</name></updatedby>
+ maintenanceversion='1.5' replicaid='C1257EBD007662D7'>
+<noteinfo noteid='11e' unid='746208765F822079C1257EBD007662DB' sequence='8'>
+<created><datetime dst='true'>20150911T233305,55+02</datetime></created>
+<modified><datetime dst='true'>20150911T233309,46+02</datetime></modified>
+<revised><datetime dst='true'>20150911T233309,45+02</datetime></revised>
+<lastaccessed><datetime dst='true'>20150911T233309,45+02</datetime></lastaccessed>
+<addedtofile><datetime dst='true'>20150911T233305,57+02</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mariusz Jakubowski/O=Development</name></updatedby>
+<wassignedby><name>CN=Mariusz Jakubowski/O=Development</name></wassignedby>
 <item name='$DefaultXPage'><text>home.xsp</text></item>
-<item name='$DefaultFrameset'><text>MainNotes</text></item>
 <item name='$DBTheme'><text>bootstrap.theme</text></item>
 <item name='IconBitmap' summary='true'>
 <rawitemdata type='6'>
@@ -26,11 +26,11 @@ d30fAAAAAPHXd33Xd3d913d9HwAAAADx13d913d3fdd3fR8AAAAA8R3d0dd3d30d3dEfAAAAAA8R
 EREdd3fRERER8AAAAAAA////Ed3dEf///wAAAAAAAAAAAPERER8AAAAAAAAAAAAAAAAP///wAAAA
 AAAAUEECICABAAD/////+A4DgA==
 </rawitemdata></item>
-<item name='$Daos'><text>0</text></item>
-<item name='$TITLE'><text>NotesCommon
-</text></item>
-<item name='$Flags'><text>J7zfFn</text></item>
 <item name='$LaunchXPageRunOnServer'><text>0</text></item>
-<item name='$FlagsNoRefresh'><text/></item>
-<item name='$AllowPost8HTML'><text>1</text></item></note>
+<item name='$AllowPost8HTML'><text>1</text></item>
+<item name='$DefaultFrameset'><text>MainNotes</text></item>
+<item name='$TITLE'><text>NotesCommon</text></item>
+<item name='$FlagsNoRefresh'><text>rv</text></item>
+<item name='$Daos'><text>0</text></item>
+<item name='$Flags'><text>fJz7Fn</text></item></note>
 

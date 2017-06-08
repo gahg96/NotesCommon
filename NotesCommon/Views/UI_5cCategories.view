@@ -1,42 +1,24 @@
-<?xml version='1.0' encoding='utf-8'?>
-<note class='view' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.2'
- replicaid='C1257E57004171E2'>
-<noteinfo noteid='25a' unid='C7B117C903B36B41C1257BBB00491C07' sequence='14'>
-<created><datetime dst='true'>20130802T151833,03+02</datetime></created>
-<modified><datetime dst='true'>20150623T095122,78+02</datetime></modified>
-<revised><datetime dst='true'>20150623T095122,77+02</datetime></revised>
-<lastaccessed><datetime dst='true'>20150623T095122,77+02</datetime></lastaccessed>
-<addedtofile><datetime dst='true'>20150601T135451,83+02</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Virt Administrator/O=virt</name></updatedby>
-<wassignedby><name>CN=Virt Administrator/O=virt</name></wassignedby>
-<item name='$FormulaClass' sign='true'><text>1</text></item>
-<item name='$TITLE' sign='true'><text>UI\Categories|ui_categories</text></item>
-<item name='$Index' sign='true'><text/></item>
-<item name='$Formula' summary='true' sign='true'><formula compiled='true'>
-UAAFACQAHwADAAgACQAEAENhdGVnb3J5JENvbmZsaWN0JFJFRgAEAAQAAAAcAAUABABGb3JtAQAI
-AENhdGVnb3J5CgIDAAcACgAEAAlMMVM=
-</formula></item>
-<item name='$Collation' summary='true'>
-<rawitemdata type='2'>
-FQABAABEgGYAAAAIAENhdGVnb3J5
-</rawitemdata></item>
-<item name='$ViewFormat' summary='true' sign='true'>
-<rawitemdata type='5'>
-AQABAAIACAAAAFZDAQAIAAkAAAAAAB4BAQAACoAAAAAAAAAAAAICAAAAQ2F0ZWdvcnlLYXRlZ29y
-aWEmAAEAAAABAQAJAQAACgEBDgoAAAEArSsBAAEAAQAAAAAAAAAAAFdDAQAACQAAAAAAAAAAAAAA
-AAAAAAAAAAQAAAAAAP//AAAAAAAAAAAAAAAAAABCAAAAAAABAP///wAFAP///wABAAAAAAAAAAAA
-AAAAAAEA////AAEA////AAAAAQAAAAAAAQAAAAAAAQAAAAAAAAAIAAAAAAABAA==
-</rawitemdata></item>
-<item name='$Comment' sign='true'><text>view with categories</text></item>
-<item name='$Flags'><text>Ydw</text></item>
-<item name='$DesignerVersion'><text>8.5.3</text></item>
-<item name='$V5ACTIONS' sign='true'>
-<rawitemdata type='1'>
-vRwBAAAAAQABAAAAJQAAAAAAAAABAQAJCAACAHn/bAABAP///wABAAAAAAABAAAAAAABAO/v7wAA
-AB8AAQAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAHH/LgAAAAAAAwATAAwAAAAAAAAAAAAAAAAAAAAAAAAAAABi
-Z190b3BfMi5wbmf8/zoAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAMDA
-wAAAAAAAAAAAAAAAvv9OAAAAAQAAAJ8BAAAOAAAAAAAAAE5vd2Ega2F0ZWdvcmlhKgAAAB4AAgDo
-AwAAAAAAAAEACABDYXRlZ29yee0CAwAHAAoAAwAJNFMA
-</rawitemdata></item></note>
-
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://www.lotus.com/dxl" name="UI\Categories" alias="ui_categories" hide="web" showinmenu="false" defaultdesign="true" publicaccess="false" comment="view with categories" unreadmarks="none" onopengoto="lastopened" onrefresh="displayindicator" headers="beveled" opencollapsed="false" showresponsehierarchy="true" showmargin="true" shrinkrows="false" extendlastcolumn="false" showhierarchies="false" unreadcolor="black" rowlinecount="1" headerlinecount="1" rowspacing="1" bgcolor="white" totalscolor="black" headerbgcolor="white" boldunreadrows="false" evaluateactions="false" allownewdocuments="false" allowcustomizations="true" hidemarginborder="false" marginwidth="0px" marginbgcolor="white" uniquekeys="false">
+  <code event="selection">
+    <formula>SELECT Form="Category"</formula>
+  </code>
+  <actionbar bgcolor="white" bordercolor="black">
+    <actionbarstyle repeat="once">
+      <imageref name="bg_top_2.png"/>
+    </actionbarstyle>
+    <actionbuttonstyle bgcolor="none"/>
+    <font size="9pt" style="bold"/>
+    <border style="solid" width="0px 0px 1px" color="silver"/>
+    <action title="Nowa kategoria">
+      <code event="click">
+        <formula>@Command([Compose]; "Category")</formula>
+      </code>
+    </action>
+  </actionbar>
+  <column sort="ascending" hidedetailrows="false" itemname="Category" width="35.7500" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false">
+    <columnheader align="center" title="Kategoria">
+      <font size="9pt"/>
+    </columnheader>
+  </column>
+</view>

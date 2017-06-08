@@ -1,68 +1,31 @@
 <?xml version='1.0' encoding='utf-8'?>
-<note class='form' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.2'
- replicaid='C1257E57004171E2'>
-<noteinfo noteid='1ae' unid='64D3E930157A82EAC1257B280034C61D' sequence='13'>
+<sharedactions xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.8'
+ replicaid='C1257EBD007662D7' hide='v3 v4strict' designerversion='8.5.3' maxid='11'>
+<noteinfo noteid='1ae' unid='64D3E930157A82EAC1257B280034C61D' sequence='3'>
 <created><datetime>20130308T103625,89+01</datetime></created>
-<modified><datetime dst='true'>20150601T142315,98+02</datetime></modified>
-<revised><datetime dst='true'>20150601T142315,97+02</datetime></revised>
-<lastaccessed><datetime dst='true'>20150601T142315,97+02</datetime></lastaccessed>
-<addedtofile><datetime dst='true'>20150601T135451,05+02</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Mariusz Jakubowski/O=SEJM/C=PL</name><name>CN=Virt Administrator/O=virt</name></updatedby>
-<wassignedby><name>CN=Virt Administrator/O=virt</name></wassignedby>
-<item name='$Flags'><text>34yQC</text></item>
-<item name='$TITLE'><text>$ACTIONS</text></item>
-<item name='$V5ACTIONS' sign='true'>
-<rawitemdata type='1'>
-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
-</rawitemdata></item>
-<item name='$DesignerVersion'><text>8.5.3</text></item>
-<item name='$$ScriptName' summary='false' sign='true'><text>$ACTIONS</text></item>
-<item name='$Body' sign='true' seal='true'>
-<rawitemdata type='1'>
-gv9GAAIAAAAAAAAAAACgBQAAoAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAKYsAAAAAAIATm9ybWFsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-gQKDBAIAhf8IAAEAAAo=
-</rawitemdata></item></note>
+<modified><datetime dst='true'>20170608T214953,16+02</datetime></modified>
+<revised><datetime dst='true'>20170608T214953,15+02</datetime></revised>
+<lastaccessed><datetime dst='true'>20170608T214953,15+02</datetime></lastaccessed>
+<addedtofile><datetime dst='true'>20150911T233308,32+02</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mariusz Jakubowski/O=Development</name><name>CN=Administrator/O=mjdev</name></updatedby>
+<wassignedby><name>CN=Administrator/O=mjdev</name></wassignedby>
+<action title='Edytuj' hide='edit previewedit' id='1'><code event='click'><formula
+>@Command([EditDocument])</formula></code></action>
+<action title='Zamknij' id='2'><code event='click'><formula>@Command([FileCloseWindow])</formula></code></action>
+<action title='Zapisz i zamknij' hide='preview read' id='3'><code event='click'><formula
+>@If(@Command([FileSave]); @Command([FileCloseWindow]); "")</formula></code><code
+ event='hidewhen' enabled='false'><formula>!@IsDocBeingEdited</formula></code></action>
+<action title='Rozwiń ' icon='97' showinmenu='false' id='4'><code event='click'><formula
+>@Command([ViewExpandAll])</formula></code></action>
+<action title='Zwiń ' icon='96' showinmenu='false' id='5'><code event='click'><formula
+>@Command([ViewCollapseAll])</formula></code></action>
+<action title='Usuń' icon='11' showinmenu='false' hide='preview edit previewedit web'
+ graphicalign='right' id='6'><code event='click'><formula>@Command([EditClear])</formula></code></action>
+<action title='Usuń dokument' icon='116' hide='web' id='7'><code event='click'><formula
+>result:=@Prompt([YesNo];"Jesteś pewien??";"Czy na pewno usunąć ten dokument?");
+@If(result=1;@Command([EditCut]);"")</formula></code></action>
+<action title='Usuń i zamknij' hide='preview edit previewedit web' id='8'><code
+ event='click'><formula>@Command([Clear]);
+@Command([FileCloseWindow])</formula></code><code event='label'><formula>"Usuń"</formula></code></action>
+<item name='$$ScriptName' summary='false' sign='true'><text>$ACTIONS</text></item></sharedactions>
 

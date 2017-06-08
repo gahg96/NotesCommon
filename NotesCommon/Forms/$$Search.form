@@ -1,30 +1,9 @@
-<?xml version='1.0' encoding='utf-8'?>
-<note class='form' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.2'
- replicaid='C1257E57004171E2'>
-<noteinfo noteid='162' unid='F7DA195E00D67552C1257B280034363B' sequence='7'>
-<created><datetime>20130308T103017,55+01</datetime></created>
-<modified><datetime dst='true'>20150601T142315,83+02</datetime></modified>
-<revised><datetime dst='true'>20150601T142315,82+02</datetime></revised>
-<lastaccessed><datetime dst='true'>20150601T142315,82+02</datetime></lastaccessed>
-<addedtofile><datetime dst='true'>20150601T135450,69+02</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Mariusz Jakubowski/O=SEJM/C=PL</name><name>CN=Virt Administrator/O=virt</name></updatedby>
-<wassignedby><name>CN=Virt Administrator/O=virt</name></wassignedby>
-<item name='$Comment' sign='true'><text/></item>
-<item name='$HTMLCode' sign='true'>
-<rawitemdata type='1'>
-X/8QAAIADwAHAAAAAAAAAA==
-</rawitemdata></item>
-<item name='$TITLE'><textlist><text>$$Search</text><text>$$Search</text></textlist></item>
-<item name='$Info' sign='true'>
-<rawitemdata type='1'>
-hhgBAIAAAAAAgAAAAQABAP///wAQAAAA
-</rawitemdata></item>
-<item name='$Flags'><text>nCD</text></item>
-<item name='$DesignerVersion' sign='true'><text>8.5.2</text></item>
-<item name='$$ScriptName' summary='false' sign='true'><text>$$Search</text></item>
-<item name='$Body' sign='true'>
-<rawitemdata type='1'>
-gQKC/1oAAQAAAAAAAAAAAKAFAACgBQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAABAAAAAJSHAAAAAAAAAAAAAAAAAQAAAAQAAACDBAEAhf8IAAEAAAo=
-</rawitemdata></item></note>
-
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.lotus.com/dxl" name="$$Search" alias="$$Search" hide="notes" nocompose="true" noquery="true" publicaccess="false" renderpassthrough="true">
+  <body>
+    <richtext>
+      <pardef id="1"/>
+      <par def="1"/>
+    </richtext>
+  </body>
+</form>

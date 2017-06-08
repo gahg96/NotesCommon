@@ -1,63 +1,77 @@
-<?xml version='1.0' encoding='utf-8'?>
-<note class='form' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.2'
- replicaid='C1257E57004171E2'>
-<noteinfo noteid='182' unid='E0FA998AE20AB5E1C1257B2800345829' sequence='10'>
-<created><datetime>20130308T103144,41+01</datetime></created>
-<modified><datetime dst='true'>20150601T142316,00+02</datetime></modified>
-<revised><datetime dst='true'>20150601T142315,99+02</datetime></revised>
-<lastaccessed><datetime dst='true'>20150601T142315,99+02</datetime></lastaccessed>
-<addedtofile><datetime dst='true'>20150601T135450,85+02</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Mariusz Jakubowski/O=SEJM/C=PL</name><name>CN=Virt Administrator/O=virt</name></updatedby>
-<wassignedby><name>CN=Virt Administrator/O=virt</name></wassignedby>
-<item name='OriginalModTime' sign='true'><datetime>20081212T110126,49+01</datetime></item>
-<item name='$HTMLCode' sign='true'>
-<rawitemdata type='1'>
-X/8QAAIADwAHAAAAAAAAAA==
-</rawitemdata></item>
-<item name='$TITLE'><text>$pgBottomFrameBorder</text></item>
-<item name='$Info' sign='true'>
-<rawitemdata type='1'>
-hhgBAIAAAAAAgAAALwABAPj4+AAAAAAA
-</rawitemdata></item>
-<item name='$DesignerVersion'><text>8.5.3</text></item>
-<item name='$Fonts'>
-<rawitemdata type='1'>
-i/8oAAEABSZBcmlhbCBDRQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
-</rawitemdata></item>
-<item name='$V5ACTIONS' sign='true'>
-<rawitemdata type='1'>
-vRwRAAAAAQABAAAAAQAAAAAAAAAAAAAACAACAHn/bAABAOzp2AABAAAAAAAJAAAAAAABAOzp2AAA
-AB8AAAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPz/OgAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=
-</rawitemdata></item>
-<item name='$Flags'><text>C34WQw</text></item>
-<item name='$$ScriptName' summary='false' sign='true'><text>$pgBottomFrameBorder</text></item>
-<item name='$Body' sign='true'>
-<rawitemdata type='1'>
-gQKC/1oAAQADAAAAAAAAADUEAAA1BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAACBAAAAAJWENQQAADUEAAAAAAAAAQAAAAYAAACDBAEA3QYAAIX/hf8IAAUAAQLSCAEA
-////AN4GAACF/4ECgv9aAAIAAwAAAAAAAAA4BAAAOAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAUhDgEAAA4BAAAAABkAAEAAAAEAAAAgwQCAN0GAQD7//v/
-LABhAAAAAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQD/vxgAAAAAAAAAXP8+AAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAQAACgAAAAABAAAAAADeBgEA+/+jDjgE
-KAA8AAAAAAADAKQSAAA4BJBCgHAAAgAAAQEAAIECgv9aAAMAAwAAAAAAAAA4BJBCOAQAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACGAQAAAABUhwAAAAAAAAAAAAAAAAEA
-AAAEAAAAgwQDAIX/CAABAAAI3QYAAK3/qf+eAAEAGAAEAJIAkgABACAACgBzZXJ2ZXJOYW1liwAA
-AAAAAAAAAPA/awIDAAcADAAFAAkxUzJTAAAATgAFAAoAc2VydmVyTmFtZQEAAAAKAq8AMgAQAAEA
-BQBMb2NhbACuACIAAgAGAAAAAAAAAAUACgBzZXJ2ZXJOYW1ltAKuAAQAtQMDAAcAFgAPAAkwUjJT
-NlM4UzEyUzE0UwCF/wgAAQAACKoC3gYAAK4Ahf8IAAEAAAqBAoMEAwCF/wgAAQAACoECgv9aAAQA
-AwAAAAAAAAA4BJBCOAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACG
-AQAAAABUhAAAAAAAAAAAAABkAAEAAAAEAAAAgwQEAN0GAQD7//v/LAABAAAAAQIBAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAXP8+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAA4AAAAAAAAAAQAACgAAAAABAAAAAADeBgEA+//PDjgEKAA8AAAAAAACANASAAA4BN0K
-AAAAggAAAQEAAIECgv9aAAUAAgAAAAEAAACpBN0KqQQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAACGAQAAAABUhHEAAABxAAAAAAAAAAEAAAAEAAAAgwQFAIX/CAABAQAI
-0BIAAd0KkEKAcAACAAABAQAAgQKC/1oABgAAAAAAAAAAAN0KkELdCgAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIYBAAAAAFSHAAAAAAAAAAAAAAAAAQAAAAQAAACDBAYA
-hf8IAAEAAAaBAoMEBgCF/wgAAQAACoECgwQGAIX/CAABAAAKgQKDBAYAhf8IAAEAAAqBAoMEBgCF
-/wgAAQAACtEGAAAAAIECgwQDAIX/CAABAAAK7v8KAAEAAAAAAKUGAAAAAIECgv9aAAcAAwAAAAAA
-AAA3BAAANwQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAU
-hDcEAAA3BAAAAABkAAEAAAAEAAAAgwQHAN0GAACF/4X/CAAFAAEJ0ggBAP///wDeBgAAhf8=
-</rawitemdata></item></note>
-
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns="http://www.lotus.com/dxl" name="$pgBottomFrameBorder" hide="web" publicaccess="false" bgcolor="#f8f8f8">
+  <actionbar bgcolor="#ece9d8" bordercolor="black">
+    <actionbuttonstyle bgcolor="#ece9d8"/>
+    <font color="system"/>
+    <border style="solid" width="0px 0px 1px"/>
+  </actionbar>
+  <body>
+    <richtext>
+      <pardef id="1" align="center" leftmargin="0.7479in" hide="notes web mobile"/>
+      <par def="1">
+        <run>
+          <font size="2pt" name="Arial CE" pitch="variable" truetype="true" familyid="20" color="white"/>
+        </run>
+      </par>
+      <table widthtype="fitwindow" cellbordercolor="#ffbf18" leftmargin="0.7500in" refwidth="11.0833in">
+        <tablecolumn width="100%"/>
+        <tablerow>
+          <tablecell borderwidth="0px">
+            <cellbackground repeat="once"/>
+            <pardef id="3" align="center" keepwithnext="true" keeptogether="true"/>
+            <par def="3">
+              <run>
+                <font size="8pt"/>
+              </run>
+              <run>
+                <font size="8pt"/>
+                <computedtext>
+                  <code event="value">
+                    <formula>serverName := @Subset(@DbName;1);
+@If( serverName=""; "Local"; @Name([CN]; serverName) )</formula>
+                  </code>
+                </computedtext>
+              </run>
+            </par>
+            <par def="3"/>
+            <table widthtype="fitmargins" leftmargin="0" refwidth="11.0833in">
+              <tablecolumn width="1.1813in"/>
+              <tablecolumn width="100%"/>
+              <tablerow>
+                <tablecell valign="bottom" borderwidth="0px">
+                  <pardef id="5" align="full" leftmargin="0.0785in" spacebefore="1.5" keepwithnext="true" keeptogether="true"/>
+                  <par def="5">
+                    <run>
+                      <font size="8pt" style="bold"/>
+                    </run>
+                  </par>
+                </tablecell>
+                <tablecell borderwidth="0px">
+                  <pardef id="6" keepwithnext="true" keeptogether="true"/>
+                  <par def="6">
+                    <run>
+                      <font size="6pt"/>
+                    </run>
+                  </par>
+                  <par def="6"/>
+                  <par def="6"/>
+                  <par def="6"/>
+                  <par def="6"/>
+                </tablecell>
+              </tablerow>
+            </table>
+          </tablecell>
+        </tablerow>
+      </table>
+      <pardef id="7" align="center" leftmargin="0.7493in"/>
+      <par def="7">
+        <run>
+          <font size="9pt" name="Arial CE" pitch="variable" truetype="true" familyid="20" color="white"/>
+        </run>
+      </par>
+    </richtext>
+  </body>
+  <item name="OriginalModTime" sign="true">
+    <datetime>20081212T110126,49+01</datetime>
+  </item>
+</page>

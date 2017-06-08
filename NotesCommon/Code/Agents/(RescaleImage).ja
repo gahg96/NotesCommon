@@ -1,108 +1,110 @@
-<?xml version='1.0' encoding='utf-8'?>
-<note class='filter' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.2'
- replicaid='C1257E57004171E2'>
-<noteinfo noteid='1ea' unid='09CDB6A2287C18BEC1257B2800356A87' sequence='2'>
-<created><datetime>20130308T104326,79+01</datetime></created>
-<modified><datetime dst='true'>20150601T142316,09+02</datetime></modified>
-<revised><datetime dst='true'>20150601T142316,08+02</datetime></revised>
-<lastaccessed><datetime dst='true'>20150601T142316,08+02</datetime></lastaccessed>
-<addedtofile><datetime dst='true'>20150601T135451,27+02</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=epacta/O=SEJM/C=PL</name><name>CN=Waldemar WB Bockowski/O=SEJM/C=PL</name><name
->CN=Mariusz Jakubowski/O=SEJM/C=PL</name><name>CN=Virt Administrator/O=virt</name></updatedby>
-<wassignedby><name>CN=Virt Administrator/O=virt</name></wassignedby>
-<item name='$POID'><datetime dst='true'>20110920T235451,58+02</datetime></item>
-<item name='$FILE' summary='true' sign='true' seal='true'><object><file hosttype='msdos'
- compression='none' flags='sign' encoding='none' name='%%source%%.jar' size='1376'>
-<created><datetime>20110215T221306,83+01</datetime></created>
-<modified><datetime dst='true'>20111026T120135,46+02</datetime></modified><filedata
->
-UEsDBBQACAAIAC9gWj8AAAAAAAAAAAAAAAAOAAAASmF2YUFnZW50LmphdmGdVm1v2zYQ/qwC/Q+c
-PkmboaQFOgwIMiAvbuMCeUHsJivaIqCls81MEgWSspMN+e+7I0W9xE42DIhjk7y75+743B1FUUll
-2D1f84RvTCIKvoTkuF4sQEE2odXB2zeiJyVk8lHkO3Ynl+OHFCojZPnssDYiT24gNVLhyeDswSGS
-On1PLvsCuTS1TjJZiFImR0sozTHXPeTB+Sk3fP7KsUzrAi28cDwu5pBlkF3O79HPF4QupAG9I8iB
-0LVIVzN4MBMDxQsiU9D6ZQM3Ajb9LKSySAr8AWUp55C7hOmU56JcJtegeVHlcFlZlaqe5yJlac61
-Zp8xvzZrDN2BMtOszSH7m6SDSok1N8C04QbVFqLkOROocD65mNzdTk5nZ+yQvfuwf/Cvwmfjyaez
-GUnvvy59MxnftqZ/+y/CrelfrfS2/ICujFID0XBPFMuRNVjwh7uNyMyqW65ALFcmppQEQSYxg42N
-PyiaxDoYiAWL0EiyBHNL6lHMfu+MxSQStEqRsxJ3AmyPDbUPnoN93Q12Zp1r0RpfO7ivz+GcRIfn
-DWwBouI5N6sEORc5z0eNJ7FLckAJKmHTRIA4uBFvpeFnp+UAvErjxXOdNpqeEql1LGZMdb8PyRbr
-DqPWm1EPxSEP73uegSb4zliyELkBFVkmlHWeO7W3b/b2guC8zo2YGqiubWERtv92PmwLvOwLGdzt
-TaP6oitBoMDUqnQKtPmEn22+r6XImOZrsOZ3Ud13O5bJdMSmRmGvwLKCPGtXJS+QMmal5EazYWcb
-sV4vd3XhlL79YAvSw1jQMN0odbkbntfgBKLwaiWNvFRiSTV8gbJhnOgqFyYKv39PQheqdwE2jTVr
-9dv+D/YLC5MQ/9t9WtxXy9Dq0NBhiOavhNbR9FHjFjlypWQFyjxGoZ9HpqgyocJ45HEcNplIMsjB
-wGU5fhC+Npr5k2yUMODuJvx89SkcWVAn0+/tTFl+97din5WPQmm7E9mcx21Vk86hu3OX18BaIbVU
-AV5x31xf+cmywyRAc8oNqWg4s5Lx+fH49O5oNjs6OTsfX8wct5z75NQJL2UpkIJXnAq3Tz3CV1Dl
-PIX2Qh063YG9xc4OLaN4K5kujU+uP7sxZHlqqXXOscvEzdQJjHpsom8mIdOYBDTdLJsbCfxIZ9mc
-qscGUSuFvPYnXpJmJltTJuckRcsorIiK+s7IO1t4DfeCdaLBHNVGfqkyzHi04LluuBE0fJK1SbDm
-SpOXUejmLTOSuontnETQSWlgCSoxsmH+moDHJcZ2IusSWRX7KHq1iB6uW4L4Ax/EZkUUj0jspyFJ
-dvql/CPA+tMw70sp1qA0zyen/o7+D22HZewzF7g3HEMSUm81NuIBCbWPxbId5RIt/gI7vvbbYIKh
-DuPGujTcjQmFAKJ9bzLYanSo5ssWqyeL0JJtSmVVG7wW4EWXhGCnEZx+wndmV/Td02fUf9m0Zrq+
-S7oj12FdvqYFz3OslFDbH68jr4myA+TuZTTqP3x2IJPuAJkIT8B0sIW7s7rDKQFnpPSu0yBRgmmv
-8cl99Tn83jWsRqBH6gvkU8tp3I87kffoQPqY5q3hp6YUn23v4jm+BoVeQcY6wruSDP3z4Yml3KQr
-pFA7tMCzDZyhqeHpnzOFKYi6hoof/PsHUEsHCAd26tzSBAAAAw0AAFBLAQIUABQACAAIAC9gWj8H
-durc0gQAAAMNAAAOAAAAAAAAAAAAAAAAAAAAAABKYXZhQWdlbnQuamF2YVBLBQYAAAAAAQABADwA
-AAAOBQAAAAA=
-</filedata></file></object></item>
-<item name='$FILE' summary='true' sign='true' seal='true'><object><file hosttype='msdos'
- compression='none' flags='sign' encoding='none' name='%%object%%.jar' size='2763'>
-<created><datetime>20110215T221306,90+01</datetime></created>
-<modified><datetime dst='true'>20111026T120135,46+02</datetime></modified><filedata
->
-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
-Y2xhc3NQSwUGAAAAAAEAAQA9AAAAeAoAAAAA
-</filedata></file></object></item>
-<item name='$FILE' summary='true' sign='true' seal='true'><object><file hosttype='msdos'
- compression='none' flags='sign' encoding='none' name='java-image-scaling-0.8.5.jar'
- size='42791'>
-<created><datetime dst='true'>20111026T113804,73+02</datetime></created>
-<modified><datetime dst='true'>20111026T113804,73+02</datetime></modified><filedata
->
+<?xml version="1.0" encoding="UTF-8"?>
+<agent xmlns="http://www.lotus.com/dxl" name="(RescaleImage)" hide="v3" publicaccess="false" restrictions="unrestricted">
+  <trigger type="agentlist"/>
+  <documentset type="runonce"/>
+  <code event="action">
+    <javaproject class="JavaAgent.class" compiledebug="true">
+      <java name="JavaAgent.java">import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.Vector;
+
+import javax.imageio.ImageIO;
+
+import lotus.domino.AgentBase;
+import lotus.domino.Database;
+import lotus.domino.Document;
+import lotus.domino.EmbeddedObject;
+import lotus.domino.NotesException;
+import lotus.domino.RichTextItem;
+import lotus.domino.Session;
+import lotus.domino.View;
+
+import com.mortennobel.imagescaling.ResampleOp;
+
+public class JavaAgent extends AgentBase {
+
+	private static final int MINI_WIDTH = 150;
+	private static final int MINI_HEIGHT = 100;
+	private static final int VIEW_WIDTH = 800;
+	private static final int VIEW_HEIGHT = 600;
+
+	private static BufferedImage scale(BufferedImage img, int max_width, int max_height) {
+		double scaleX = 1.0;
+		if (img.getWidth() &gt; max_width)
+			scaleX = (double) max_width / img.getWidth();
+		double scaleY = 1.0;
+		if (img.getHeight() &gt; max_height)
+			scaleY = (double) max_height / img.getHeight();
+		double scale = Math.min(scaleX, scaleY);
+
+		int new_width = (int) (img.getWidth() * scale);
+		int new_height = (int) (img.getHeight() * scale);
+
+		ResampleOp  resampleOp = new ResampleOp(new_width, new_height);
+		BufferedImage bdest = resampleOp.filter(img, null);
+		
+//		MultiStepRescaleOp scaleOp = new MultiStepRescaleOp(new_width, new_height);
+//		BufferedImage bdest = scaleOp.filter(img, null);
+		
+		return bdest;
+	}
+	
+	private static void saveImage(BufferedImage img, Document doc, String field, String name) throws NotesException, IOException {
+		String[] fname = doc.getItemValueString("PhotoOriginalName").split("\\.");
+		String newname = fname[0] + "." + name + ".jpg";
+		File temp = new File(System.getProperty("java.io.tmpdir"), newname);
+		temp.deleteOnExit();
+		ImageIO.write(img, "JPG", temp);
+		RichTextItem rt = (RichTextItem) doc.getFirstItem(field);
+		if (rt == null) {
+			rt = doc.createRichTextItem(field);
+		}
+		rt.embedObject(EmbeddedObject.EMBED_ATTACHMENT, null, temp.getCanonicalPath(), null);
+		doc.replaceItemValue(field + "Name", temp.getName());
+		temp.delete();
+	}
+
+	public void NotesMain() {
+
+		try {
+			Session s = getSession();
+			Database db = s.getCurrentDatabase();
+			View v = db.getView("photos_to_scale");
+			v.setAutoUpdate(false);
+			System.out.println("images to rescale " + Integer.toString(v.getEntryCount()));
+			Document doc = v.getFirstDocument();
+			while (doc != null) {
+				System.out.println("rescaling " + doc.getUniversalID());
+				RichTextItem rt = (RichTextItem) doc.getFirstItem("PhotoOriginal");
+				Vector emb = rt.getEmbeddedObjects();
+				if (emb.size() &gt; 0) {
+					EmbeddedObject att = (EmbeddedObject) emb.get(0);
+					BufferedImage img = ImageIO.read(att.getInputStream());
+					
+					BufferedImage mini = scale(img, MINI_WIDTH, MINI_HEIGHT);
+					saveImage(mini, doc, "PhotoSmall", "small");
+					
+					BufferedImage view = scale(img, VIEW_WIDTH, VIEW_HEIGHT);
+					saveImage(view, doc, "PhotoView", "view");
+					
+					doc.replaceItemValue("Scaled", "1");
+					doc.save();
+				}
+				Document doc2 = doc;
+				doc = v.getNextDocument(doc);
+				doc2.recycle();
+			}
+			v.recycle();
+			System.out.println("finished rescaling images");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}
+</java>
+      <javaarchive name="java-image-scaling-0.8.5.jar">
 UEsDBAoAAAAAAGBfFT0AAAAAAAAAAAAAAAAJAAAATUVUQS1JTkYvUEsDBAoAAAAIAF1fFT23zlpV
 aQAAAIAAAAAUAAAATUVUQS1JTkYvTUFOSUZFU1QuTUbzTczLTEstLtENSy0qzszPs1Iw1DPg5XIs
 Ss7ILEstQggH5KRWlBYrwCR4uZyLUhNLUlN0nSqtFBwLEpMzUhV8E8tS83i5nEozc0rA4lmJebn5
@@ -854,62 +856,16 @@ AKotAAA5AAAAAAAAAAAAAACkgQeOAABNRVRBLUlORi9tYXZlbi9jb20ubW9ydGVubm9iZWwvamF2
 YS1pbWFnZS1zY2FsaW5nL3BvbS54bWxQSwECFAMKAAAACABgXxU96qEWP3MAAAB2AAAAQAAAAAAA
 AAAAAAAApIHHlgAATUVUQS1JTkYvbWF2ZW4vY29tLm1vcnRlbm5vYmVsL2phdmEtaW1hZ2Utc2Nh
 bGluZy9wb20ucHJvcGVydGllc1BLBQYAAAAAKgAqAHkPAACYlwAAAAA=
-</filedata></file></object></item>
-<item name='$JavaCompilerSource'><text>1.3</text></item>
-<item name='$JavaCompilerTarget'><text>1.2</text></item>
-<item name='$TITLE' sign='true'><text>(RescaleImage)</text></item>
-<item name='$AssistType' sign='true'><number>65427</number></item>
-<item name='$AssistLastRun' sign='true'>
-<rawitemdata type='400'>
-AAAAAAAAAAA=
-</rawitemdata></item>
-<item name='$AssistDocCount' sign='true'><number>0</number></item>
-<item name='$FlagsExt' sign='true'><text>D</text></item>
-<item name='$AssistFlags' sign='true'><text>EHs</text></item>
-<item name='$AssistTrigger'><text>4</text></item>
-<item name='$AssistInfo' sign='true'>
-<rawitemdata type='11'>
-AQAEAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-</rawitemdata></item>
-<item name='$AssistQuery' sign='true'>
-<rawitemdata type='f'>
-gQYAAAAA
-</rawitemdata></item>
-<item name='$AssistAction' sign='true'>
-<rawitemdata type='10'>
-gQKT/3IADwAUADwAAQAAAAAAAABKYXZhQWdlbnQuY2xhc3NDOlxMb3R1c1xOb3RlczhcRGF0YSUl
-c291cmNlJSUuamFyACUlb2JqZWN0JSUuamFyAGphdmEtaW1hZ2Utc2NhbGluZy0wLjguNS5qYXIA
-AAA=
-</rawitemdata></item>
-<item name='$AssistAction_Ex' sign='true'>
-<rawitemdata type='14'>
-gQI=
-</rawitemdata></item>
-<item name='$Restricted' sign='true'><number>0</number></item>
-<item name='$Flags'><text>fJj3</text></item>
-<item name='$DesignerVersion'><text>8.5.3</text></item>
-<item name='$AssistRunInfo' summary='true'>
-<rawitemdata type='3'>
-BgAAAgAACADmAQAAAAAAAAUAAAAwAAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAAAAAABAAAAAA
-AAAA0msrACh7JcEAAAAA2bxdACF7JcH8aV4AFnslwQAAAAAAAAAAAAAAAAAAAAAAAAAAU3RhcnRl
-ZCBydW5uaW5nIGFnZW50ICdSZXNjYWxlSW1hZ2UnIG9uIDIwMTMtMDMtMDggMDg6NTQ6MTQNClJh
-biBKYXZhIEFnZW50IENsYXNzDQpEb25lIHJ1bm5pbmcgYWdlbnQgJ1Jlc2NhbGVJbWFnZScgb24g
-MjAxMy0wMy0wOCAwODo1NDoxNg0KAA0KUK1XZbkR0SgO6DkANXklwaqqqqqqqqqqqqqqqqqqqqqq
-qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
-qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
-qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
-qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
-qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
-qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
-qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
-qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
-qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
-qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
-qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
-qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
-qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
-qqqqqqqqqqqqqqqqqqqqqqqq
-</rawitemdata></item>
-<item name='$AssistVersion'><datetime dst='true'>20150601T142316,03+02</datetime></item></note>
-
+</javaarchive>
+    </javaproject>
+  </code>
+  <item name="$POID">
+    <datetime dst="true">20110920T235451,58+02</datetime>
+  </item>
+  <item name="$JavaCompilerSource">
+    <text>1.3</text>
+  </item>
+  <item name="$JavaCompilerTarget">
+    <text>1.2</text>
+  </item>
+</agent>

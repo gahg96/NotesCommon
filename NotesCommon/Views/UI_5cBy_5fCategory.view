@@ -1,46 +1,33 @@
-<?xml version='1.0' encoding='utf-8'?>
-<note class='view' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.2'
- replicaid='C1257E57004171E2'>
-<noteinfo noteid='262' unid='D5FD88E2F5EC3E4BC1257C2A0039051D' sequence='15'>
-<created><datetime>20131121T112248,61+01</datetime></created>
-<modified><datetime dst='true'>20150623T095112,11+02</datetime></modified>
-<revised><datetime dst='true'>20150623T095112,10+02</datetime></revised>
-<lastaccessed><datetime dst='true'>20150623T095112,10+02</datetime></lastaccessed>
-<addedtofile><datetime dst='true'>20150601T135451,87+02</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Virt Administrator/O=virt</name></updatedby>
-<wassignedby><name>CN=Virt Administrator/O=virt</name></wassignedby>
-<item name='$FormulaClass' sign='true'><text>1</text></item>
-<item name='$TITLE' sign='true'><text>UI\By_Category|ui_by_category</text></item>
-<item name='$Index' sign='true'><text/></item>
-<item name='$Formula' summary='true' sign='true'><formula compiled='true'>
-fgACACwAAwAkMzIABQAIAENhdGVnb3J5AQACACAoIgKVACICAQABACkAIgIDAAUAJgAhAAQAAwAF
-AAkABAAkMzJUaXRsZSRDb25mbGljdCRSRUYABAAEAAAAHAAFAAQARm9ybQEACABEb2N1bWVudAoC
-AwAHAAoABAAJTDFT
-</formula></item>
-<item name='$Collation' summary='true'>
-<rawitemdata type='2'>
-EAABAABEiGYHAAADACQzMg==
-</rawitemdata></item>
-<item name='$ViewFormat' summary='true' sign='true'>
-<rawitemdata type='5'>
-AQACACEACAAAAFZDAwQDAAAAQgAAABAAAQEACgABAAAAAAAAAAICAAAAVkMAAAUABgAAAAAA0gAB
-AAAKgAAAAAAAAAAAAgIAAAAkMzJCAAIALAADACQzMgAFAAgAQ2F0ZWdvcnkBAAIAICgiApUAIgIB
-AAEAKQAiAgMABwAUAA0ACTFTMlMzUzRTNVM2UwBUaXRsZVR5dHUGiCYAAQAAAAEBAAkBAAAKAQEO
-CgAAAQCtKwEAAQABAAAAAAAAAAAAV0MBAAAJAAAAAAAAAAAAAAAAAAAAAAAABBAAAAAA//8AAAAA
-AAAAAAAAAAAAAFdDAQAACQAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAP//AAAAAAAAAAAAAAAAAABC
-AAAAAAABAP///wAFAP///wABAAAAAAAAAAAAAAAAAAEA////AAEA////AAAAAQAAAAAAAQAAAAAA
-AQAAAAAAAAAIAAAAAAABAAkAS2F0ZWdvcmlh
-</rawitemdata></item>
-<item name='$Comment' sign='true'><text>sample categorized view</text></item>
-<item name='$Flags'><text>Ydw</text></item>
-<item name='$DesignerVersion'><text>8.5.3</text></item>
-<item name='$V5ACTIONS' sign='true'>
-<rawitemdata type='1'>
-vRwBAAAAAQABAAAAJQAAAAAAAAABAQAJCAACAHn/bAABAP///wABAAAAAAABAAAAAAABAO/v7wAA
-AB8AAQAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAHH/LgAAAAAAAwATAAwAAAAAAAAAAAAAAAAAAAAAAAAAAABi
-Z190b3BfMi5wbmf8/zoAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAMDA
-wAAAAAAAAAAAAAAAvv9OAAAAAQAAAJ8BAAANAAAAAAAAAE5vd3kgZG9rdW1lbnQAKgAAAB4AAgDo
-AwAAAAAAAAEACABEb2N1bWVudO0CAwAHAAoAAwAJNFMA
-</rawitemdata></item></note>
-
+<?xml version="1.0" encoding="UTF-8"?>
+<view xmlns="http://www.lotus.com/dxl" name="UI\By_Category" alias="ui_by_category" hide="web" showinmenu="false" defaultdesign="true" publicaccess="false" comment="sample categorized view" unreadmarks="none" onopengoto="lastopened" onrefresh="displayindicator" headers="beveled" opencollapsed="false" showresponsehierarchy="true" showmargin="true" shrinkrows="false" extendlastcolumn="false" showhierarchies="false" unreadcolor="black" rowlinecount="1" headerlinecount="1" rowspacing="1" bgcolor="white" totalscolor="black" headerbgcolor="white" boldunreadrows="false" evaluateactions="false" allownewdocuments="false" allowcustomizations="true" hidemarginborder="false" marginwidth="0px" marginbgcolor="white" uniquekeys="false">
+  <code event="selection">
+    <formula>SELECT Form="Document"</formula>
+  </code>
+  <actionbar bgcolor="white" bordercolor="black">
+    <actionbarstyle repeat="once">
+      <imageref name="bg_top_2.png"/>
+    </actionbarstyle>
+    <actionbuttonstyle bgcolor="none"/>
+    <font size="9pt" style="bold"/>
+    <border style="solid" width="0px 0px 1px" color="silver"/>
+    <action title="Nowy dokument">
+      <code event="click">
+        <formula>@Command([Compose]; "Document")</formula>
+      </code>
+    </action>
+  </actionbar>
+  <column sort="ascending" hidedetailrows="false" itemname="$32" width="2" resizable="true" separatemultiplevalues="true" sortnoaccent="false" sortnocase="true" showaslinks="false" hidecolumntitle="true" categorized="true" twisties="true">
+    <font style="bold"/>
+    <columnheader title="Kategoria">
+      <font size="9pt"/>
+    </columnheader>
+    <code event="value">
+      <formula>Category + " (" + @DocDescendants + ")"</formula>
+    </code>
+  </column>
+  <column hidedetailrows="false" itemname="Title" width="26.2500" resizable="true" separatemultiplevalues="false" sortnoaccent="false" sortnocase="true" showaslinks="false">
+    <columnheader align="center" title="Tytuł">
+      <font size="9pt"/>
+    </columnheader>
+  </column>
+</view>

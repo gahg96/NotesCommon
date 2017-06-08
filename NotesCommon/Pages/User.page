@@ -1,43 +1,51 @@
-<?xml version='1.0' encoding='utf-8'?>
-<note class='form' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.2'
- replicaid='C1257E57004171E2'>
-<noteinfo noteid='206' unid='AB52868684BCA749C1257B2800362F8F' sequence='12'>
-<created><datetime>20130308T105151,19+01</datetime></created>
-<modified><datetime dst='true'>20150623T095159,77+02</datetime></modified>
-<revised><datetime dst='true'>20150623T095159,76+02</datetime></revised>
-<lastaccessed><datetime dst='true'>20150623T095159,76+02</datetime></lastaccessed>
-<addedtofile><datetime dst='true'>20150601T135451,41+02</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Virt Administrator/O=virt</name></updatedby>
-<wassignedby><name>CN=Virt Administrator/O=virt</name></wassignedby>
-<item name='OriginalModTime' sign='true'><datetime>20081215T102735,91+01</datetime></item>
-<item name='$BackgroundRepeat'><text>1</text></item>
-<item name='$BackgroundR5'>
-<rawitemdata type='1'>
-3QYBAJkAmQAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAH0AHAAAAAMA0AMUAAAAAAAAAAAAAAAA
-AAAAAABSFAQAAAAAAAAAAAAAAAAAAAAAAPb/LAAAAAAAAwATAAoAAAAAAAAAAAAAAAAAAAAAAAAA
-AABiZ190b3AucG5n3gYBAJkA
-</rawitemdata></item>
-<item name='$HTMLCode' sign='true'>
-<rawitemdata type='1'>
-X/8QAAIADwAHAAAAAAAAAA==
-</rawitemdata></item>
-<item name='$TITLE'><text>User</text></item>
-<item name='$Comment' sign='true'><text>info about logged user</text></item>
-<item name='$Info' sign='true'>
-<rawitemdata type='1'>
-hhgBAIAAAAAAAAAAAQABAP///wAQAAAA
-</rawitemdata></item>
-<item name='$Flags'><text>C34WQw</text></item>
-<item name='$DesignerVersion'><text>8.5.3</text></item>
-<item name='$$ScriptName' summary='false' sign='true'><text>User</text></item>
-<item name='$Body' sign='true'>
-<rawitemdata type='1'>
-gQKC/1oAAQABAAAAAQAAAKAFAACgBQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAABAAAAAJSHAAAAAAAAAAAAAAAAAQAAAAQAAACDBAEAhf8JAAEAAAggAN0GAACt/6n/
-LAABABgABAAgACAAAAAUAAIABQAAAAAAAAD0ALQCAwAHAAoAAwAJNFMAhf8IAAEAAAiqAt4GAACu
-AIX/DAABAAAIICAgIN0GAACt/6n/KAABABgABAAcABwAAAAQAOcAAQACADsghQIDAAcACgADAAk0
-UwCF/wgAAQAACKoC3gYAAK4Ahf8JAAEAAAggAN0GAACt/63/WAACABwAAABMAEwACgAEAAAAOAAC
-AA0AAAAAAAAAAQAQAExpc3RhIGdydXAgaSByomz7AAcBAAAAAAAAAAAqQIcBhQKwAwMABwAOAAgA
-CTRTNlMxMFOF/xIAAQAACHdpBqljZWouLi6uAt4GAACuAIX/CAABAAAI
-</rawitemdata></item></note>
-
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns="http://www.lotus.com/dxl" name="User" hide="web" publicaccess="false" comment="info about logged user" renderpassthrough="true">
+  <background repeat="once">
+    <imageref name="bg_top.png"/>
+  </background>
+  <body>
+    <richtext>
+      <pardef id="1" align="right" spacebefore="1.5"/>
+      <par def="1">
+        <run>
+          <font size="8pt"/>
+        </run>
+        <run>
+          <font size="8pt"/>
+          <computedtext>
+            <code event="value">
+              <formula>@Name([Abbreviate]; @UserName)</formula>
+            </code>
+          </computedtext>
+        </run>
+        <run>
+          <font size="8pt"/>
+        </run>
+        <run>
+          <font size="8pt"/>
+          <computedtext>
+            <code event="value">
+              <formula>@Implode(@UserRoles; "; ")</formula>
+            </code>
+          </computedtext>
+        </run>
+        <run>
+          <font size="8pt"/>
+        </run>
+        <actionhotspot hotspotstyle="none">
+          <code event="click">
+            <formula>@Prompt([Ok]; "Lista grup i ról"; @Implode(@UserNamesList; @Char(13)))</formula>
+          </code>
+          <run>
+            <font size="8pt"/>więcej...</run>
+        </actionhotspot>
+        <run>
+          <font size="8pt"/>
+        </run>
+      </par>
+    </richtext>
+  </body>
+  <item name="OriginalModTime" sign="true">
+    <datetime>20081215T102735,91+01</datetime>
+  </item>
+</page>
