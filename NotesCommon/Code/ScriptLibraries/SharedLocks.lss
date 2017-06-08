@@ -1,0 +1,144 @@
+'++LotusScript Development Environment:2:5:(Options):0:74
+%REM
+    Library for managing locks.
+    This library facilitates creating documents that are 
+    treated as mutexes. 
+    One possible use is to ensure that agent is run only once.
+    The first step of an agent is to check if there is a lock
+    document. If there is one then another copy of agent is running
+    and the current instance should exit.
+    
+    The build-in CreateLock and other associated functions doesn't work as
+    expected. For example when an agent is run manually and is triggered
+    by schedule then the CreateLock will create two distinct locks.
+%END REM
+Option Public
+Option Declare
+
+Use "SharedBase"
+
+'++LotusScript Development Environment:2:5:(Forward):0:1
+Declare Public Class DocMutex
+
+'++LotusScript Development Environment:2:5:(Declarations):0:10
+
+%REM
+    Manages a document that represents a mutex.
+%END REM
+Public Class DocMutex
+    Private mutexName As String
+    Private locks As NotesView
+    Private lockDoc As NotesDocument
+    
+    %REM
+        Sets a name of this mutex.
+    %END REM
+    Public Sub New(AName As String)
+        mutexName = AName
+        Set locks = CurrentDatabase.GetView("Locks")
+    End Sub
+    
+    Private Sub CreateLockDoc()
+        Set lockDoc = CurrentDatabase.CreateDocument()
+        lockDoc.Form = "Lock"
+        lockDoc.Name = mutexName
+        lockDoc.Date = Now()
+        Call lockDoc.Save(True, False)
+    End Sub
+    
+    
+    %REM
+        Checks if a lock can be acquired and if yes
+        it acquires it and returns true.
+        If lock cannot be acquired it returns false.
+    %END REM
+    Public Function Acquire() As Boolean
+        Call locks.Refresh()
+        Dim e As NotesViewEntry
+        Set e = locks.GetEntryByKey(mutexName, True)
+        If Not e Is Nothing Then
+            Print "Acquired lock " & mutexName 
+            Call CreateLockDoc()
+            Acquire = True
+        Else
+            Print "Lock " & mutexName & " is already acquired"
+            Acquire = False
+        End If
+    End Function
+    
+    %REM
+        Checks if a lock can be acquired. If lock already 
+        exists it checks if it is older than given time amount.
+        If it is older the old lock is deleted and new lock
+        is established.
+        This function can be used if we're not sure that the 
+        previous lock was released correctly.
+    %END REM
+    Public Function AcquireIfOlder(minutes As Integer) As Boolean
+        Dim cutoff As Variant
+        cutoff = Now() - TimeNumber(0, minutes, 0)
+        Dim free As Boolean
+        free = True
+        Dim ec As NotesViewEntryCollection
+        Call locks.Refresh()
+        Set ec = locks.GetAllEntriesByKey(mutexName, True)
+        Dim e As NotesViewEntry
+        Set e = ec.GetFirstEntry()
+        While Not e Is Nothing 
+            Dim v As Variant
+            v = e.ColumnValues(1)
+            If v < cutoff Then
+                Dim n As NotesViewEntry
+                Set n = ec.GetNextEntry(e)
+                Print "Removing old lock " & mutexName & ", refreshed " & v
+                Call e.Document.RemovePermanently(True)
+                Set e = n
+            Else
+                Print "Lock " & mutexName & " is already acquired, refreshed at " & v
+                Set e = ec.GetNextEntry(e)
+                free = False
+            End If
+        Wend
+        If free Then
+            Print "Acquired lock " & mutexName 
+            Call CreateLockDoc()            
+        End If
+        AcquireIfOlder = free
+    End Function
+    
+    %REM
+        Refreshes date on the current lock.
+        This is to ensure that lock is not stolen by another client.
+        Locks that are not refreshed can be assumed as not 
+        correctly released. 
+    %END REM
+    Public Sub Refresh()
+        If Not lockDoc Is Nothing Then
+            lockDoc.Date = Now()
+            Call lockDoc.Save(True, False)
+        End If 
+    End Sub
+    
+    %REM
+        Releases the lock.
+    %END REM
+    Public Sub Release()
+        If Not lockDoc Is Nothing Then
+            Print "Releasing lock " & mutexName 
+            Call lockDoc.RemovePermanently(True)
+        End If    
+    End Sub
+    
+    %REM
+        Releases all locks of a given name.
+    %END REM
+    Public Sub ReleaseAll()
+        Dim ec As NotesViewEntryCollection
+        Set ec = locks.GetAllEntriesByKey(mutexName, True)
+        If ec.Count > 0 Then
+            Print "Releasing locks " & mutexName & ", count: " & ec.Count
+            Call ec.RemoveAll(True)
+        End If
+    End Sub
+    
+End Class
