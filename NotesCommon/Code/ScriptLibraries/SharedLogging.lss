@@ -4,13 +4,6 @@ Option Declare
 
 %Include "LSCONST.LSS"
 
-'++LotusScript Development Environment:2:5:(Forward):0:1
-Declare Private Function ifTrue(ACondition As Boolean, AMsg As String) As String
-Declare Public Sub RaiseError(AMessage As String)
-Declare Public Sub ShowErrorMessage(AMessage As String)
-Declare Public Sub PrintErrorMessage(AMessage As String)
-
-'++LotusScript Development Environment:2:5:(Declarations):0:10
 %REM
 
 A library for logging erro messages.
@@ -22,8 +15,25 @@ A library for logging erro messages.
 
 
 
-'++LotusScript Development Environment:2:1:ifTrue:2:8
+'++LotusScript Development Environment:2:5:(Forward):0:1
+Declare Sub Initialize
+Declare Private Function ifTrue(ACondition As Boolean, AMsg As String) As String
+Declare Public Sub RaiseError(AMessage As String)
+Declare Public Sub PrintErrorMessage(AMessage As String)
+Declare Public Sub ShowErrorMessage(AMessage As String)
 
+'++LotusScript Development Environment:2:5:(Declarations):0:10
+Private CurrentDatabase As NotesDatabase
+
+
+
+'++LotusScript Development Environment:2:2:Initialize:1:10
+Sub Initialize
+    Dim s As New NotesSession()
+    Set CurrentDatabase = s.CurrentDatabase
+End Sub
+
+'++LotusScript Development Environment:2:1:ifTrue:1:8
 Private Function ifTrue(ACondition As Boolean, AMsg As String) As String
     If ACondition Then
         ifTrue = AMsg
@@ -32,26 +42,29 @@ Private Function ifTrue(ACondition As Boolean, AMsg As String) As String
     End If
 End Function
 
-'++LotusScript Development Environment:2:2:RaiseError:2:8
 
+
+'++LotusScript Development Environment:2:2:RaiseError:1:8
 Public Sub RaiseError(AMessage As String)
     ' rethrows an error message
     Error Err, GetThreadInfo(LSI_THREAD_CALLPROC) & ":" & Erl() & ifTrue(Len(AMessage)>0, ":(" & AMessage & ")") & ":" & Error$ 
 End Sub
 
 
-'++LotusScript Development Environment:2:2:ShowErrorMessage:2:8
 
+'++LotusScript Development Environment:2:2:PrintErrorMessage:1:8
+Public Sub PrintErrorMessage(AMessage As String)
+    ' prints error message to a status bar
+    Print CurrentDatabase.FileName & ": " & GetThreadInfo(LSI_THREAD_CALLPROC) & ":" & Erl()  _
+    & ifTrue(Len(AMessage)>0, ":(" & AMessage & ")")  & ":" & Error$ 
+End Sub
+
+
+
+'++LotusScript Development Environment:2:2:ShowErrorMessage:1:8
 Public Sub ShowErrorMessage(AMessage As String)
     ' shows error message in a message box
-    MessageBox GetThreadInfo(LSI_THREAD_CALLPROC) & ":" & Erl()  _
+    MessageBox CurrentDatabase.FileName & ": " & GetThreadInfo(LSI_THREAD_CALLPROC) & ":" & Erl()  _
     & ifTrue(Len(AMessage)>0, ":(" & AMessage & ")")  & ":" & Error$ , MB_OK Or MB_ICONSTOP, "Error"
 End Sub
 
-'++LotusScript Development Environment:2:2:PrintErrorMessage:2:8
-
-Public Sub PrintErrorMessage(AMessage As String)
-    ' prints error message to a status bar
-    Print GetThreadInfo(LSI_THREAD_CALLPROC) & ":" & Erl()  _
-    & ifTrue(Len(AMessage)>0, ":(" & AMessage & ")")  & ":" & Error$ 
-End Sub
