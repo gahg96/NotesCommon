@@ -1,15 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?><note class="filter" maintenanceversion="1.4" replicaid="C1257E57004171E2" version="9.0" xmlns="http://www.lotus.com/dxl">
-<noteinfo noteid="342" sequence="1" unid="AFEA83CFEDC68A53C1257ECB00424CE9">
-<created><datetime dst="true">20150925T140410,65+02</datetime></created>
-<modified><datetime dst="true">20150925T140411,60+02</datetime></modified>
-<revised><datetime dst="true">20150925T140411,59+02</datetime></revised>
-<lastaccessed><datetime dst="true">20150925T140411,59+02</datetime></lastaccessed>
-<addedtofile><datetime dst="true">20150925T140411,59+02</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Mariusz Jakubowski/O=Development</name></updatedby>
-<wassignedby><name>CN=Mariusz Jakubowski/O=Development</name></wassignedby>
-<item name="$TITLE" sign="true"><text>SharedEncoding</text></item>
-<item name="$Flags"><text>s34Q</text></item>
-<item name="$PublicAccess" sign="true"><text>1</text></item>
-<item name="$DesignerVersion"><text>8.5.3</text></item>
-
+<?xml version="1.0" encoding="UTF-8"?>
+<note xmlns="http://www.lotus.com/dxl" class="filter">
+  <item name="$TITLE" sign="true">
+    <text>SharedEncoding</text>
+  </item>
+  <item name="$Flags">
+    <text>s34Q</text>
+  </item>
+  <item name="$PublicAccess" sign="true">
+    <text>1</text>
+  </item>
 </note>
